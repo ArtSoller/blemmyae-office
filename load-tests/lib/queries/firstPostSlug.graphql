@@ -1,0 +1,29 @@
+query firstPostSlug($applications: [ID], $postType: [String]) {
+    contentTeaserPosts(
+        applications: $applications
+        postsPerPage: 1
+        page: 1
+        postType: $postType
+        blockName: "list_with_image"
+        taxonomyQuery: {
+            taxArray: [
+                {
+                    field: SLUG,
+                    operator: NOT_IN,
+                    terms: ["native"],
+                    taxonomy: EDITORIALTYPE
+                }
+            ],
+            relation: AND
+        }
+    ) {
+        contentTeaserPostsConnection {
+            nodes {
+                ... on ContentNode {
+                    __typename
+                    slug
+                }
+            }
+        }
+    }
+}

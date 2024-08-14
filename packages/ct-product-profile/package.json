@@ -1,0 +1,28 @@
+{
+  "name": "ct-product-profile",
+  "version": "1.0.0",
+  "description": "Post Product Profile.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build:docs": "rm -rf hookdocs/ && jsdoc -c hookdoc-conf.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cra-repo/ct-product-profile.git"
+  },
+  "keywords": [
+    "plugin",
+	"ct-product-profile"
+  ],
+  "author": "Alexander Kucherov",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cra-repo/ct-product-profile/issues"
+  },
+  "homepage": "https://github.com/cra-repo/ct-product-profile#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+	"wp-hookdoc": "^0.2.0"
+  }
+}

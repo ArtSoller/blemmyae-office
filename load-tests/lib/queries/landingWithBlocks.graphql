@@ -1,0 +1,1733 @@
+query landingWithBlocks($id: ID!, $applications: [ID]!) {
+    landingBySlug(slug: $id, applications: $applications) {
+        ...landingWithBlocksContent
+    }
+}
+
+fragment landingWithBlocksContent on Landing {
+    fetchedPostsList
+    title
+    ...landingTaxonomy
+    ...landingThemeOptions
+    collectionWidget {
+        layouts {
+            ...landingCollectionWidget
+        }
+    }
+}
+
+fragment landingTaxonomy on Landing {
+    landingTaxonomy {
+        topic {
+            name
+        }
+    }
+    landingTypes {
+        nodes {
+            slug
+        }
+    }
+}
+
+fragment landingThemeOptions on Landing {
+    advancedPageOptions {
+        additionalCssClasses
+    }
+}
+
+fragment landingCollectionWidget on Landing_Collectionwidget_layouts {
+    ...collectionWidgetLayoutOptions
+    columns {
+        blocks {
+            ...collectionWidgetBlocks
+        }
+        customBackgroundColor
+        customTextColor
+    }
+}
+
+fragment collectionWidgetLayoutOptions on Landing_Collectionwidget_layouts {
+    type
+    layoutOptions
+    customBackgroundColor
+    customAccentColor
+    customTextColor
+    designTheme
+    backgroundImage {
+        ...mediaItem
+    }
+    backgroundImagePosition
+}
+
+fragment mediaItem on MediaItem {
+    sourceUrl
+    altText
+    caption
+    title
+    mediaDetails {
+        width
+        height
+    }
+    mediaAdvanced {
+        lqip
+    }
+}
+
+fragment collectionWidgetBlocks on Landing_Collectionwidget_layouts_columns_Blocks {
+    __typename
+    ...landingCoeSponsorLogo
+    ...landingCtaCard
+    ...landingFeaturedImage
+    ...landingFeaturedPost
+    ...landingFeaturedFeedPost
+    ...landingFeaturedPostWithLogo
+    ...landingHorizontalListWithImage
+    ...landingListOfFeaturedEvents
+    ...landingSimpleList
+    ...listWithImage
+    ...landingNumberCounters
+    ...landingSlider
+    ...landingPersonCardList
+    ...personProfileCard
+    ...landingBootstrapAccordion
+    ...landingListOfCompanies
+    ...landingWysiwygEditor
+    ...landingHorizontalLinks
+    ...landingTableWithLinks
+    ...landingEmbedEditorial
+    ...landingFeaturedListOfWhitepapers
+    ...landingLogoAndSocials
+    ...landingAds
+    ...landingNewsletterAd
+    ...landingMarketoForm
+    ...landingPpworksSubscribe
+    ...landingSwHosts
+    ...landingGridCard
+    ...landingCompanyProfileCard
+    ...landingDataTable
+}
+
+fragment landingCoeSponsorLogo on Landing_Collectionwidget_layouts_columns_Blocks_CoeSponsorLogo {
+    link {
+        title
+        url
+    }
+    featuredImageOptions: options {
+        height
+        width
+        position
+    }
+    image {
+        ...mediaItem
+    }
+    coePageTitle
+    customTextColor
+    customBackgroundColor
+}
+
+fragment landingCtaCard on Landing_Collectionwidget_layouts_columns_Blocks_CtaCard {
+    title
+    template
+    body
+    image {
+        ...mediaItem
+    }
+    link {
+        ... on AcfLink {
+            title
+            url
+        }
+    }
+    customBackgroundColor
+    customTextColor
+}
+
+fragment landingFeaturedImage on Landing_Collectionwidget_layouts_columns_Blocks_FeaturedImage {
+    link {
+        title
+        url
+    }
+    template
+    featuredImageOptions: options {
+        height
+        width
+        position
+    }
+    image {
+        ...mediaItem
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment landingFeaturedPost on Landing_Collectionwidget_layouts_columns_Blocks_FeaturedPost {
+    title
+    subtitle
+    postDeck
+    options
+    resolvedPostCollection(first: 1) {
+        nodes {
+            ...featuredPostTeaser
+        }
+    }
+    postTitle
+    customLink
+    image {
+        ...mediaItem
+    }
+}
+
+fragment featuredPostTeaser on FeaturedPost_ResolvedPostCollection {
+    __typename
+    ...featuredPostEditorialTeaser
+    ...featuredPostLearningTeaser
+    ...featuredPostLandingTeaser
+    ...featuredPostWhitepaperTeaser
+    ...featuredPostPpworksEpisodeTeaser
+    ...featuredPostPpworksSegmentTeaser
+}
+
+fragment featuredPostEditorialTeaser on Editorial {
+    id
+    title
+    uri
+    ...editorialOrderedTopic
+    editorialTaxonomy {
+        type {
+            slug
+        }
+        podcastShow {
+            __typename
+            name
+        }
+    }
+    editorialAdvanced {
+        deck
+        featuredImage {
+            ...mediaItem
+        }
+    }
+}
+
+fragment editorialOrderedTopic on Editorial {
+    topics {
+        nodes {
+            ...hierarchicalTopicNode
+        }
+    }
+    editorialTaxonomy {
+        topic {
+            ...orderedTopic
+        }
+    }
+}
+
+fragment hierarchicalTopicNode on Topic {
+    __typename
+    id
+    children {
+        nodes {
+            id
+        }
+    }
+}
+
+fragment orderedTopic on TermNode {
+    __typename
+    id
+    link
+    uri
+    name
+    slug
+}
+
+fragment featuredPostLearningTeaser on Learning {
+    id
+    title
+    ...learningUrl
+    learningAdvanced {
+        featuredImage {
+            ...mediaItem
+        }
+    }
+}
+
+fragment learningUrl on Learning {
+    uri
+    learningAdvanced {
+        vendor {
+            ...vendor
+        }
+    }
+}
+
+fragment vendor on Learning_Learningadvanced_Vendor {
+    __typename
+    ... on Learning_Learningadvanced_Vendor_Gotowebinar {
+        eventUrl
+    }
+    ... on Learning_Learningadvanced_Vendor_Swoogo {
+        url
+    }
+    ... on Learning_Learningadvanced_Vendor_MemberPortal {
+        link
+    }
+    ... on Learning_Learningadvanced_Vendor_Youtube {
+        url
+    }
+    ... on Learning_Learningadvanced_Vendor_ExternalEvent {
+        url
+    }
+}
+
+fragment featuredPostLandingTeaser on Landing {
+    id
+    title
+    uri
+}
+
+fragment featuredPostWhitepaperTeaser on Whitepaper {
+    id
+    title
+    uri
+    whitepaperAdvanced {
+        featuredImage {
+            ...mediaItem
+        }
+    }
+}
+
+fragment featuredPostPpworksEpisodeTeaser on PpworksEpisode {
+    id
+    title
+    uri
+    ppworksPodcastBasic {
+        featuredImage {
+            ...mediaItem
+        }
+    }
+    ...ppworksShowImageFromEpisode
+    ppworksEpisodeAdvanced {
+        number
+        show {
+            ... on PpworksShow {
+                ppworksShowAdvanced {
+                    shortName
+                }
+            }
+        }
+        topics {
+            ...orderedTopic
+        }
+    }
+}
+
+fragment ppworksShowImageFromEpisode on PpworksEpisode {
+    ppworksEpisodeAdvanced {
+        show {
+            __typename
+            name
+            ... on PpworksShow {
+                ppworksShowAdvanced {
+                    defaultImage {
+                        ...mediaItem
+                    }
+                }
+            }
+        }
+    }
+}
+
+fragment featuredPostPpworksSegmentTeaser on PpworksSegment {
+    id
+    title
+    uri
+    ppworksPodcastBasic {
+        featuredImage {
+            ...mediaItem
+        }
+    }
+    ppworksSegmentAdvanced {
+        topics {
+            ...orderedTopic
+        }
+    }
+}
+
+fragment landingFeaturedFeedPost on Landing_Collectionwidget_layouts_columns_Blocks_FeaturedFeedPost {
+    postDeck
+    options
+    resolvedPostCollection(first: 1) {
+        nodes {
+            __typename
+            ...featuredFeedPostEditorialTeaser
+            ...featuredFeedPostLearningTeaser
+            ...featuredFeedPostLandingTeaser
+            ...featuredFeedPostWhitepaperTeaser
+            ...featuredFeedPostPpworksEpisodeTeaser
+            ...featuredFeedPostPpworksSegmentTeaser
+        }
+    }
+    postTitle
+    customLink
+    image {
+        ...mediaItem
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment featuredFeedPostEditorialTeaser on Editorial {
+    id
+    databaseId
+    title
+    uri
+    date
+    ...editorialOrderedTopic
+    authorCollection {
+        author {
+            ...personPageLink
+        }
+    }
+    editorialTaxonomy {
+        type {
+            name
+            slug
+        }
+        podcastShow {
+            __typename
+            name
+        }
+    }
+    editorialAdvanced {
+        deck
+        featuredImage {
+            ...mediaItem
+        }
+    }
+}
+
+fragment personPageLink on Person {
+    title
+    uri
+    slug
+    peopleAdvanced {
+        firstName
+        middleName
+        lastName
+    }
+}
+
+fragment featuredFeedPostLearningTeaser on Learning {
+    id
+    databaseId
+    title
+    uri
+    learningAdvanced {
+        featuredImage {
+            ...mediaItem
+        }
+        vendor {
+            __typename
+            ... on Learning_Learningadvanced_Vendor_Gotowebinar {
+                eventUrl
+            }
+        }
+    }
+}
+
+fragment featuredFeedPostLandingTeaser on Landing {
+    id
+    databaseId
+    title
+    uri
+}
+
+fragment featuredFeedPostWhitepaperTeaser on Whitepaper {
+    id
+    databaseId
+    title
+    uri
+    whitepaperAdvanced {
+        featuredImage {
+            ...mediaItem
+        }
+    }
+}
+
+fragment featuredFeedPostPpworksEpisodeTeaser on PpworksEpisode {
+    id
+    databaseId
+    title
+    uri
+    ppworksPodcastBasic {
+        featuredImage {
+            ...mediaItem
+        }
+    }
+    ...ppworksShowImageFromEpisode
+    ppworksEpisodeAdvanced {
+        number
+        show {
+            ... on PpworksShow {
+                ppworksShowAdvanced {
+                    shortName
+                }
+            }
+        }
+        topics {
+            ...orderedTopic
+        }
+    }
+}
+
+fragment featuredFeedPostPpworksSegmentTeaser on PpworksSegment {
+    id
+    databaseId
+    uri
+    title
+    date
+    ...gutenbergBlocks
+    ppworksPodcastBasic {
+        ...ppworksSegmentPodcastBasicVideo
+        featuredImage {
+            ...mediaItem
+        }
+    }
+    ppworksSegmentAdvanced {
+        topics {
+            ...orderedTopic
+        }
+    }
+}
+
+fragment gutenbergBlocks on BlockEditorContentNode {
+    blocks {
+        __typename
+        ...gutenbergContentBlocks
+        ...columnGutenbergBlock
+    }
+}
+
+fragment gutenbergContentBlocks on Block {
+    __typename
+    ...embedGutenbergBlock
+    ...headingGutenbergBlock
+    ...paragraphGutenbergBlock
+    ...imageGutenbergBlock
+    ...unsupportedGutenbergBlock
+}
+
+fragment embedGutenbergBlock on CoreEmbedBlock {
+    attributes {
+        __typename
+        ... on CoreEmbedBlockAttributes {
+            url
+            providerNameSlug
+            caption
+        }
+    }
+}
+
+fragment headingGutenbergBlock on CoreHeadingBlock {
+    attributes {
+        __typename
+        ... on CoreHeadingBlockAttributes {
+            content
+            level
+        }
+    }
+}
+
+fragment paragraphGutenbergBlock on CoreParagraphBlock {
+    attributes {
+        __typename
+        ... on CoreParagraphBlockAttributes {
+            content
+        }
+    }
+}
+
+fragment imageGutenbergBlock on CoreImageBlock {
+    attributes {
+        ... on CoreImageBlockAttributes {
+            id
+            caption
+            width
+            height
+            align
+        }
+    }
+    mediaItem {
+        node {
+            ...mediaItem
+        }
+    }
+}
+
+fragment unsupportedGutenbergBlock on Block {
+    __typename
+    saveContent
+}
+
+fragment columnGutenbergBlock on CoreColumnsBlock {
+    innerBlocks {
+        ... on CoreColumnBlock {
+            attributes {
+                ... on CoreColumnBlockAttributes {
+                    width
+                }
+            }
+            innerBlocks {
+                ...gutenbergContentBlocks
+            }
+        }
+    }
+}
+
+fragment ppworksSegmentPodcastBasicVideo on PpworksSegment_Ppworkspodcastbasic {
+    s3Video
+    youtubeId
+}
+
+fragment landingFeaturedPostWithLogo on Landing_Collectionwidget_layouts_columns_Blocks_FeaturedPostWithLogo {
+    logo {
+        ...mediaItem
+    }
+    options
+    logoLink {
+        title
+        url
+    }
+    customLink
+    image {
+        ...mediaItem
+    }
+    resolvedPostCollection(first: 1) {
+        nodes {
+            ...featuredPostTeaser
+        }
+    }
+}
+
+fragment landingHorizontalListWithImage on Landing_Collectionwidget_layouts_columns_Blocks_HorizontalListWithImage {
+    title
+    titleLink
+    designTheme
+    imagePosition
+    numberOfItems
+    numberOfColumns
+    openNewTab
+    options
+    ctaLinks {
+        link {
+            title
+            url
+        }
+    }
+    resolvedPostCollection {
+        nodes {
+            __typename
+            ...horizontalListContentNode
+        }
+    }
+    collection {
+        __typename
+        ...landingHorizontalListWithImageCollectionFields
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment horizontalListContentNode on HorizontalListWithImage_ResolvedPostCollection {
+    __typename
+    ...horizontalListEditorial
+    ...horizontalListLearning
+    ...horizontalListPpworksEpisode
+    ...horizontalListPpworksSegment
+    ... on Landing {
+        databaseId
+        uri
+    }
+}
+
+fragment horizontalListEditorial on Editorial {
+    __typename
+    id
+    title
+    uri
+    databaseId
+    ...editorialOrderedTopic
+    authorCollection {
+        author {
+            ...personPageLink
+        }
+    }
+    editorialTaxonomy {
+        type {
+            slug
+        }
+    }
+    editorialAdvanced {
+        featuredImage {
+            ...mediaItem
+        }
+    }
+}
+
+fragment horizontalListLearning on Learning {
+    __typename
+    id
+    databaseId
+    title
+    learningTypes {
+        nodes {
+            slug
+        }
+    }
+    learningVendorTypes {
+        nodes {
+            slug
+        }
+    }
+    learningAdvanced {
+        featuredImage {
+            ...mediaItem
+        }
+    }
+    ...learningOrderedTopic
+    ...learningUrl
+}
+
+fragment learningOrderedTopic on Learning {
+    topics {
+        nodes {
+            ...hierarchicalTopicNode
+        }
+    }
+    learningTaxonomy {
+        topic {
+            ...orderedTopic
+        }
+    }
+}
+
+fragment horizontalListPpworksEpisode on PpworksEpisode {
+    __typename
+    id
+    databaseId
+    dateGmt
+    title
+    uri
+    ppworksPodcastBasic {
+        featuredImage {
+            ...mediaItem
+        }
+        ...ppworksEpisodePodcastBasicVideo
+    }
+    ...ppworksShowImageFromEpisode
+    ppworksEpisodeAdvanced {
+        number
+        topics {
+            ...orderedTopic
+        }
+    }
+}
+
+fragment ppworksEpisodePodcastBasicVideo on PpworksEpisode_Ppworkspodcastbasic {
+    s3Video
+    youtubeId
+}
+
+fragment horizontalListPpworksSegment on PpworksSegment {
+    __typename
+    id
+    dateGmt
+    databaseId
+    title
+    uri
+    ppworksPodcastBasic {
+        featuredImage {
+            ...mediaItem
+        }
+        ...ppworksSegmentPodcastBasicVideo
+    }
+    ppworksSegmentAdvanced {
+        episode {
+            ... on PpworksEpisode {
+                ppworksEpisodeAdvanced {
+                    number
+                }
+            }
+        }
+        topics {
+            ...orderedTopic
+        }
+    }
+}
+
+fragment landingHorizontalListWithImageCollectionFields on Landing_Collectionwidget_layouts_columns_Blocks_HorizontalListWithImage_collection {
+    __typename
+    title
+    description
+    image {
+        ...mediaItem
+    }
+    link {
+        title
+        url
+    }
+}
+
+fragment landingListOfFeaturedEvents on Landing_Collectionwidget_layouts_columns_Blocks_ListOfFeaturedEvents {
+    resolvedPostCollection {
+        nodes {
+            ...featuredLearningTeaser
+        }
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment featuredLearningTeaser on Learning {
+    databaseId
+    title
+    link
+    slug
+    content
+    date
+    learningAdvanced {
+        date {
+            endDate
+            startDate
+        }
+        featuredImage {
+            ...mediaItem
+        }
+    }
+    ...safeLearningType
+    ...learningUrl
+}
+
+fragment safeLearningType on Learning {
+    learningTypes {
+        nodes {
+            name
+        }
+    }
+}
+
+fragment landingSimpleList on Landing_Collectionwidget_layouts_columns_Blocks_SimpleList {
+    title
+    subtitle
+    ctaLink {
+        title
+        url
+    }
+    options
+    collection {
+        postTitle
+        url
+        post {
+            __typename
+            ... on Person {
+                id
+            }
+            ...simpleListEditorial
+            ...simpleListCompanyProfile
+            ...simpleListLearning
+        }
+    }
+    resolvedPostCollection {
+        nodes {
+            ...simpleListContent
+        }
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment simpleListEditorial on Editorial {
+    id
+    title
+    uri
+    date
+    editorialAdvanced {
+        featuredImage {
+            ...mediaItem
+        }
+    }
+    authorCollection {
+        author {
+            ...personPageLink
+        }
+    }
+}
+
+fragment simpleListCompanyProfile on CompanyProfile {
+    id
+    title
+    companyProfileAdvanced {
+        websiteUrl {
+            url
+        }
+    }
+}
+
+fragment simpleListLearning on Learning {
+    id
+    title
+    uri
+    ...learningUrl
+    learningAdvanced {
+        date {
+            startDate
+            endDate
+        }
+    }
+    learningTypes {
+        nodes {
+            name
+        }
+    }
+}
+
+fragment simpleListContent on SimpleList_ResolvedPostCollection {
+    __typename
+    ... on Person {
+        id
+    }
+    ... on PpworksEpisode {
+        id
+    }
+    ... on PpworksSegment {
+        id
+    }
+    ...simpleListEditorial
+    ...simpleListLearning
+    ...simpleListCompanyProfile
+}
+
+fragment listWithImage on Landing_Collectionwidget_layouts_columns_Blocks_ListWithImage {
+    nativeAdTopics {
+        __typename
+        slug
+    }
+    numberOfItems
+    hideImages
+    hasFeaturedItem
+    postType
+    hasNativeAds
+    fetchedPostsList
+    nativeAdFrequency
+    taxonomyQuery {
+        ...landingListWithImageTaxonomyQuery
+    }
+    resolvedPostCollection {
+        nodes {
+            __typename
+            ...teaserCard
+            ... on CerberusDfpNativeAd {
+                id
+                databaseId
+            }
+        }
+    }
+    options
+    title
+    paginationType
+    customBackgroundColor
+    customTextColor
+}
+
+fragment landingListWithImageTaxonomyQuery on Landing_Collectionwidget_layouts_columns_Blocks_ListWithImage_TaxonomyQuery {
+    __typename
+    relation
+    queryArray {
+        terms {
+            __typename
+            taxonomyName
+            databaseId
+            slug
+        }
+        operator
+    }
+}
+
+fragment teaserCard on ContentNode {
+    __typename
+    id
+    databaseId
+    ...editorialTeaserCard
+    ... on PpworksEpisode {
+        uri
+        title
+        date
+        ...gutenbergBlocks
+        ppworksPodcastBasic {
+            ...ppworksEpisodePodcastBasicVideo
+            featuredImage {
+                ...mediaItem
+            }
+        }
+        ppworksEpisodeAdvanced {
+            number
+            topics {
+                ...orderedTopic
+            }
+            show {
+                name
+                ... on PpworksShow {
+                    ppworksShowAdvanced {
+                        defaultImage {
+                            ...mediaItem
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ... on PpworksSegment {
+        uri
+        title
+        date
+        ...gutenbergBlocks
+        ppworksPodcastBasic {
+            ...ppworksSegmentPodcastBasicVideo
+            featuredImage {
+                ...mediaItem
+            }
+        }
+        ppworksSegmentAdvanced {
+            topics {
+                ...orderedTopic
+            }
+        }
+    }
+    ... on Learning {
+        uri
+        title
+        date
+        content
+        topics {
+            nodes {
+                __typename
+                id
+                children {
+                    nodes {
+                        id
+                    }
+                }
+            }
+        }
+        authorCollection {
+            author {
+                ...personPageLink
+            }
+        }
+        ...learningUrl
+        learningAdvanced {
+            featuredImage {
+                ...mediaItem
+            }
+        }
+        learningTaxonomy {
+            topic {
+                __typename
+                link
+                name
+                slug
+                id
+                uri
+            }
+        }
+    }
+    ... on Whitepaper {
+        id
+        uri
+        title
+        date
+        content
+        topics {
+            nodes {
+                id
+                children {
+                    nodes {
+                        id
+                    }
+                }
+            }
+        }
+        authorCollection {
+            author {
+                ...personPageLink
+            }
+        }
+        whitepaperAdvanced {
+            featuredImage {
+                ...mediaItem
+            }
+        }
+        whitepaperTaxonomy {
+            topic {
+                __typename
+                link
+                name
+                slug
+                id
+                uri
+            }
+        }
+    }
+    ... on ScAwardNominee {
+        title
+        ScAwardNomineeAdvanced {
+            category {
+                ... on ScAward {
+                    name
+                }
+            }
+            featuredImage {
+                ...mediaItem
+            }
+            summary
+            nominee {
+                ...awardsNomineeEntity
+            }
+        }
+    }
+}
+
+fragment editorialTeaserCard on Editorial {
+    id
+    databaseId
+    uri
+    title
+    date
+    topics {
+        nodes {
+            __typename
+            id
+            children {
+                nodes {
+                    id
+                }
+            }
+        }
+    }
+    authorCollection {
+        author {
+            ...personPageLink
+        }
+    }
+    editorialAdvanced {
+        deck
+        featuredImage {
+            ...mediaItem
+        }
+        featuredImageCaption
+    }
+    editorialTaxonomy {
+        type {
+            name
+        }
+        podcastShow {
+            name
+        }
+        topic {
+            __typename
+            link
+            name
+            slug
+            id
+            uri
+        }
+    }
+}
+
+fragment awardsNomineeEntity on ScAwardNominee_Scawardnomineeadvanced_Nominee {
+    __typename
+    ... on Person {
+        peopleAdvanced {
+            bio
+            headshot {
+                ...mediaItem
+            }
+            companies {
+                jobTitle
+                company {
+                    ... on CompanyProfile {
+                        title
+                        companyProfileAdvanced {
+                            companyName
+                        }
+                    }
+                }
+            }
+        }
+        ...personDisplayName
+    }
+    ... on CompanyProfile {
+        title
+        companyProfileAdvanced {
+            companyName
+            about
+            logo {
+                ...mediaItem
+            }
+        }
+    }
+    ... on ProductProfile {
+        title
+        productProfileAdvanced {
+            logo {
+                ...mediaItem
+            }
+            productDescription
+            productName
+            companyName {
+                ... on CompanyProfile {
+                    title
+                    companyProfileAdvanced {
+                        companyName
+                    }
+                }
+            }
+        }
+    }
+}
+
+fragment personDisplayName on Person {
+    title
+    peopleAdvanced {
+        firstName
+        middleName
+        lastName
+    }
+}
+
+fragment landingNumberCounters on Landing_Collectionwidget_layouts_columns_Blocks_NumberCounters {
+    counters {
+        number
+        title
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment landingSlider on Landing_Collectionwidget_layouts_columns_Blocks_Slider {
+    slides {
+        ...landingSliderItem
+    }
+    sliderType
+    sliderSettings {
+        interval
+        sliderSettingsFlags
+        theme
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment landingSliderItem on Landing_Collectionwidget_layouts_columns_Blocks_Slider_slides {
+    title
+    subtitle
+    body
+    ctaLink {
+        title
+        url
+    }
+    author {
+        ...testimonialAuthorItem
+    }
+    image {
+        ...mediaItem
+    }
+}
+
+fragment testimonialAuthorItem on Person {
+    __typename
+    ...personDisplayName
+    peopleAdvanced {
+        headshot {
+            ...mediaItem
+        }
+        ...testimonialAuthorCompanies
+    }
+}
+
+fragment testimonialAuthorCompanies on Person_Peopleadvanced {
+    companies {
+        jobTitle
+        company {
+            ... on CompanyProfile {
+                title
+            }
+        }
+    }
+}
+
+fragment landingPersonCardList on Landing_Collectionwidget_layouts_columns_Blocks_PersonList {
+    title
+    numberOfColumns
+    template
+    persons {
+        ...personInfoCard
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment personInfoCard on Person {
+    __typename
+    ...personDisplayName
+    id
+    slug
+    peopleAdvanced {
+        bio
+        headshot {
+            ...mediaItem
+        }
+    }
+    swoogoSpeakerAdvanced {
+        regionsCollection {
+            swoogoCommunityRegion {
+                slug
+                name
+            }
+            swoogoSpeakerType {
+                slug
+                name
+            }
+        }
+        swoogoCompany {
+            ... on CompanyProfile {
+                title
+            }
+        }
+        swoogoJobTitle {
+            ... on JobTitle {
+                name
+            }
+        }
+        swoogoHeadshot {
+            ...mediaItem
+        }
+    }
+    cscPeopleAdvanced {
+        cscJobTitle {
+            name
+        }
+        cscPeopleType {
+            name
+        }
+        cscCompany {
+            ... on CompanyProfile {
+                title
+            }
+        }
+        cscHeadshot {
+            ...mediaItem
+        }
+    }
+    ...personCompaniesFragment
+}
+
+fragment personCompaniesFragment on Person {
+    peopleAdvanced {
+        companies {
+            jobTitle
+            company {
+                ... on CompanyProfile {
+                    title
+                }
+            }
+        }
+    }
+}
+
+fragment personProfileCard on Landing_Collectionwidget_layouts_columns_Blocks_PersonProfileCard {
+    person {
+        ... on Person {
+            uri
+            title
+            slug
+            peopleAdvanced {
+                firstName
+                middleName
+                lastName
+                bio
+                email
+                linkedin
+                twitter
+                facebook
+                companies {
+                    jobTitle
+                    company {
+                        ... on CompanyProfile {
+                            title
+                        }
+                    }
+                }
+                headshot {
+                    ...mediaItem
+                }
+            }
+        }
+    }
+    fullName
+    jobTitle
+    headshot {
+        ...mediaItem
+    }
+    bio
+    headshotStyle
+    options
+    customTextColor
+    customBackgroundColor
+}
+
+fragment landingBootstrapAccordion on Landing_Collectionwidget_layouts_columns_Blocks_Accordion {
+    accordionItems {
+        title
+        description
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment landingListOfCompanies on Landing_Collectionwidget_layouts_columns_Blocks_CisoListOfCompanies {
+    title
+    numberOfColumns
+    ctaLink {
+        url
+        title
+    }
+    companies {
+        ...listOfCompaniesSingleProfile
+    }
+}
+
+fragment listOfCompaniesSingleProfile on Landing_Collectionwidget_layouts_columns_Blocks_CisoListOfCompanies_companies {
+    company {
+        ...singleCompanyProfile
+    }
+    linkOverride {
+        title
+        url
+    }
+}
+
+fragment singleCompanyProfile on CompanyProfile {
+    title
+    uri
+    slug
+    companyProfileAdvanced {
+        logo {
+            ...mediaItem
+        }
+    }
+}
+
+fragment landingWysiwygEditor on Landing_Collectionwidget_layouts_columns_Blocks_WysiwygEditor {
+    body
+    customBackgroundColor
+    customTextColor
+}
+
+fragment landingHorizontalLinks on Landing_Collectionwidget_layouts_columns_Blocks_HorizontalLinks {
+    alignOption
+    links {
+        link {
+            title
+            url
+        }
+    }
+}
+
+fragment landingTableWithLinks on Landing_Collectionwidget_layouts_columns_Blocks_TableWithLinks {
+    type
+    title
+    numberOfColumns
+    backgroundColorOverride
+    textColorOverride
+    hoverColorOverride
+    groups {
+        fieldGroupName
+        groupTitle
+        links {
+            ...tableWithLinksItem
+        }
+    }
+}
+
+fragment tableWithLinksItem on Landing_Collectionwidget_layouts_columns_Blocks_TableWithLinks_groups_links {
+    linkTitle
+    fieldGroupName
+    label
+    url
+    post {
+        ... on Editorial {
+            uri
+        }
+        ... on Whitepaper {
+            uri
+        }
+        ... on Learning {
+            uri
+        }
+        ... on Landing {
+            uri
+        }
+    }
+    taxonomyTerm {
+        ... on CommunityRegion {
+            name
+            slug
+            uri
+        }
+    }
+}
+
+fragment landingEmbedEditorial on Landing_Collectionwidget_layouts_columns_Blocks_Post {
+    post {
+        ... on Editorial {
+            ...gutenbergBlocks
+        }
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment landingFeaturedListOfWhitepapers on Landing_Collectionwidget_layouts_columns_Blocks_FeaturedListOfWhitepapers {
+    resolvedPostCollection {
+        nodes {
+            ...featuredWhitepaper
+        }
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment featuredWhitepaper on Whitepaper {
+    id
+    databaseId
+    uri
+    title
+    content
+    whitepaperTaxonomy {
+        topic {
+            name
+        }
+    }
+    whitepaperAdvanced {
+        featuredImage {
+            ...mediaItem
+            ...imageDimensions
+        }
+    }
+}
+
+fragment imageDimensions on MediaItem {
+    mediaDetails {
+        width
+        height
+    }
+}
+
+fragment landingLogoAndSocials on Landing_Collectionwidget_layouts_columns_Blocks_LogoAndorSocialLinks {
+    logo {
+        ...mediaItem
+    }
+    links {
+        url
+        type
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment landingAds on Landing_Collectionwidget_layouts_columns_Blocks_Ad {
+    name
+    disableRotation
+    targetingOptions {
+        sid
+    }
+}
+
+fragment landingNewsletterAd on Landing_Collectionwidget_layouts_columns_Blocks_NewsletterAd {
+    adPost {
+        ...advancedAdFields
+    }
+    targeting {
+        newsletterName
+        position
+        positionModifier
+    }
+    customBackgroundColor
+    customTextColor
+}
+
+fragment advancedAdFields on AdvancedAd {
+    status
+    title
+    content
+}
+
+fragment landingMarketoForm on Landing_Collectionwidget_layouts_columns_Blocks_MarketoForm {
+    marketFormId
+    template
+    customBackgroundColor
+    customTextColor
+}
+
+fragment landingPpworksSubscribe on Landing_Collectionwidget_layouts_columns_Blocks_PpworksSubscribe {
+    title
+    ppworksShow {
+        ...ppworksShowEntity
+    }
+    customTextColor
+    customBackgroundColor
+}
+
+fragment ppworksShowEntity on PpworksShow {
+    databaseId
+    id
+    isTermNode
+    isContentNode
+    ppworksShowSubscribe {
+        audio {
+            apple
+            spotify
+            google
+            rss
+        }
+        video {
+            apple
+            google
+            rss
+        }
+    }
+    ppworksShowAdvanced {
+        shortName
+        defaultImage {
+            ...mediaItem
+        }
+    }
+    name
+    uri
+}
+
+fragment landingSwHosts on Landing_Collectionwidget_layouts_columns_Blocks_SwHosts {
+    title
+    numberOfColumns
+    hostList {
+        ...swHostInfo
+    }
+    customBackgroundColor
+    customTextColor
+}
+
+fragment swHostInfo on Landing_Collectionwidget_layouts_columns_Blocks_SwHosts_hostList {
+    host {
+        ...swHost
+    }
+    shows {
+        ...swShow
+    }
+}
+
+fragment swHost on Person {
+    id
+    ...personPageLink
+    ...personDisplayName
+    ppworksPeopleAdvanced {
+        ppworksHeadshot {
+            ...mediaItem
+        }
+        ppworksTwitter
+        ppworksLinkedin
+        ppworksJobTitle {
+            name
+        }
+        ppworksCompany {
+            ... on CompanyProfile {
+                title
+            }
+        }
+    }
+}
+
+fragment swShow on TermNode {
+    id
+    name
+}
+
+fragment landingGridCard on Landing_Collectionwidget_layouts_columns_Blocks_GridCardList {
+    gridCard {
+        ...gridCard
+    }
+    numberOfColumns
+    customTextColor
+    customBackgroundColor
+}
+
+fragment gridCard on Landing_Collectionwidget_layouts_columns_Blocks_GridCardList_gridCard {
+    backgroundImage {
+        ...mediaItem
+    }
+    image {
+        ...mediaItem
+    }
+    title
+    body
+    ctaLink {
+        url
+        title
+    }
+    template
+    imageStyle
+}
+
+fragment landingCompanyProfileCard on Landing_Collectionwidget_layouts_columns_Blocks_CompanyProfileCard {
+    company {
+        ... on CompanyProfile {
+            uri
+            title
+            slug
+            companyProfileAdvanced {
+                websiteUrl {
+                    url
+                }
+                about
+                logo {
+                    ...mediaItem
+                }
+            }
+        }
+    }
+    companyName
+    logo {
+        ...mediaItem
+    }
+    description
+    url
+    customTextColor
+    customBackgroundColor
+}
+
+fragment landingDataTable on Landing_Collectionwidget_layouts_columns_Blocks_Datatable {
+    pagerNumberOfPagesShow
+    template
+    pagerPageSize
+    file {
+        uri
+        mediaItemUrl
+    }
+    tablePost {
+        ... on TablepressTable {
+            databaseId
+            rawContent
+        }
+    }
+}

@@ -1,0 +1,75 @@
+REGION;STATE;CITY
+Midwest;;
+Midwest;Illinois;
+Midwest;Illinois;Chicago
+Midwest;Indiana;
+Midwest;Iowa;
+Midwest;Kansas;
+Midwest;Kentucky;
+Midwest;Kentucky;Louisville
+Midwest;Michigan;
+Midwest;Michigan;Detroit
+Midwest;Minnesota;
+Midwest;Missouri;
+Midwest;Missouri;St. Louis
+Midwest;Nebraska;
+Midwest;North Dakota;
+Midwest;Ohio;
+Midwest;Ohio;Cincinnati
+Midwest;Ohio;Cleveland
+Midwest;South Dakota;
+Midwest;West Virginia;
+Midwest;Wisconsin;
+North East;;
+North East;Connecticut;
+North East;Delaware;
+North East;Maine;
+North East;Maryland;
+North East;Massachusetts;
+North East;Massachusetts;Boston;
+North East;New Hampshire;
+North East;New Jersey;
+North East;New York;
+North East;Pennsylvania;
+North East;Pennsylvania;Philadelphia
+North East;Rhode Island;
+North East;Vermont;
+North East;Virginia;
+Pacific;;
+Pacific;Alaska;
+Pacific;Hawaii;
+Pacific;Oregon;
+Pacific;Washington;
+Pacific;Washington;Portland
+Pacific;Washington;Seattle
+South East;;
+South East;Alabama;
+South East;Arkansas;
+South East;Florida;
+South East;Georgia;
+South East;Georgia;Atlanta
+South East;Louisiana;
+South East;Mississippi;
+South East;North Carolina;
+South East;South Carolina;
+South East;Tennessee;
+South East;Tennessee;Nashville
+South West;;
+South West;Arizona;
+South West;New Mexico;
+South West;Oklahoma;
+South West;Texas;
+South West;Texas;Dallas
+South West;Texas;San Antonio
+South West;California;
+South West;California;Los Angeles
+South West;California;Sacramento
+West;;
+West;Colorado;
+West;Idaho;
+West;Montana;
+West;Nevada;
+West;Utah;
+West;Utah;Salt Lake City
+West;Wyoming;
+Uncategorized;;

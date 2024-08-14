@@ -1,0 +1,600 @@
+{
+    "key": "group_627e1f7229caf",
+    "title": "Community Region Advanced",
+    "fields": [
+        {
+            "key": "field_627e289488ecf",
+            "label": "Hero Slider",
+            "name": "hero_slider",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "layout": "row",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large",
+            "sub_fields": [
+                {
+                    "key": "field_628648fb94943",
+                    "label": "Settings",
+                    "name": "slider_settings",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "layout": "row",
+                    "acfe_seamless_style": 0,
+                    "acfe_group_modal": 0,
+                    "acfe_group_modal_close": 0,
+                    "acfe_group_modal_button": "",
+                    "acfe_group_modal_size": "large",
+                    "sub_fields": [
+                        {
+                            "key": "field_6286492f94948",
+                            "label": "Theme",
+                            "name": "theme",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "choices": {
+                                "dark": "Dark",
+                                "white": "White"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": "",
+                            "allow_custom": 0,
+                            "search_placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": ""
+                        },
+                        {
+                            "key": "field_6286495c94949",
+                            "label": "Toggle Settings",
+                            "name": "slider_settings_flags",
+                            "aria-label": "",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "choices": {
+                                "show_controls": "Show Controls",
+                                "show_indicators": "Show Indicators",
+                                "enable_fade": "Enable crossfade animation"
+                            },
+                            "allow_custom": 0,
+                            "default_value": [],
+                            "layout": "vertical",
+                            "toggle": 0,
+                            "return_format": "value",
+                            "save_custom": 0,
+                            "custom_choice_button_text": "Add new choice",
+                            "min": "",
+                            "max": ""
+                        },
+                        {
+                            "key": "field_628649779494a",
+                            "label": "Interval",
+                            "name": "interval",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "default_value": 5000,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_627e2ad888eda",
+                    "label": "Slides",
+                    "name": "slides",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "acfe_repeater_stylised_button": 0,
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "row",
+                    "button_label": "Add Slide",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_627e2a4488ed5",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "parent_repeater": "field_627e2ad888eda"
+                        },
+                        {
+                            "key": "field_627e2a5288ed6",
+                            "label": "Subtitle",
+                            "name": "subtitle",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": "",
+                            "new_lines": "",
+                            "acfe_textarea_code": 0,
+                            "parent_repeater": "field_627e2ad888eda"
+                        },
+                        {
+                            "key": "field_627e2a6488ed7",
+                            "label": "CTA Link",
+                            "name": "cta_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "return_format": "url",
+                            "parent_repeater": "field_627e2ad888eda"
+                        },
+                        {
+                            "key": "field_627e2a7788ed8",
+                            "label": "Image",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "uploader": "wp",
+                            "acfe_thumbnail": 0,
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "upload_folder": "",
+                            "parent_repeater": "field_627e2ad888eda"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_627e2abd88ed9",
+            "label": "Testimonial Slider",
+            "name": "testimonial_slider",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "layout": "row",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large",
+            "sub_fields": [
+                {
+                    "key": "field_628649be9494b",
+                    "label": "Settings",
+                    "name": "slider_settings",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "layout": "row",
+                    "acfe_seamless_style": 0,
+                    "acfe_group_modal": 0,
+                    "acfe_group_modal_close": 0,
+                    "acfe_group_modal_button": "",
+                    "acfe_group_modal_size": "large",
+                    "sub_fields": [
+                        {
+                            "key": "field_628649be9494c",
+                            "label": "Theme",
+                            "name": "theme",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "choices": {
+                                "dark": "Dark",
+                                "white": "White"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": "",
+                            "allow_custom": 0,
+                            "search_placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": ""
+                        },
+                        {
+                            "key": "field_628649be9494d",
+                            "label": "Toggle Settings",
+                            "name": "slider_settings_flags",
+                            "aria-label": "",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "choices": {
+                                "show_controls": "Show Controls",
+                                "show_indicators": "Show Indicators",
+                                "enable_fade": "Enable crossfade animation"
+                            },
+                            "allow_custom": 0,
+                            "default_value": [],
+                            "layout": "vertical",
+                            "toggle": 0,
+                            "return_format": "value",
+                            "save_custom": 0,
+                            "custom_choice_button_text": "Add new choice",
+                            "min": "",
+                            "max": ""
+                        },
+                        {
+                            "key": "field_628649be9494e",
+                            "label": "Interval",
+                            "name": "interval",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "default_value": 5000,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_627e2b7a88edb",
+                    "label": "Testimonials",
+                    "name": "slides",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "acfe_repeater_stylised_button": 0,
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "row",
+                    "button_label": "Add Testimonial",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_627e2bb488edc",
+                            "label": "Author",
+                            "name": "author",
+                            "aria-label": "",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "post_type": [
+                                "people"
+                            ],
+                            "taxonomy": "",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "return_format": "object",
+                            "save_custom": 0,
+                            "save_post_status": "publish",
+                            "acfe_bidirectional": {
+                                "acfe_bidirectional_enabled": "0"
+                            },
+                            "ui": 1,
+                            "bidirectional_target": [],
+                            "save_post_type": "",
+                            "acfe_add_post": 0,
+                            "acfe_edit_post": 0,
+                            "min": "",
+                            "max": "",
+                            "parent_repeater": "field_627e2b7a88edb"
+                        },
+                        {
+                            "key": "field_627e2c0388edd",
+                            "label": "Quote",
+                            "name": "body",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": "",
+                            "new_lines": "",
+                            "acfe_textarea_code": 0,
+                            "parent_repeater": "field_627e2b7a88edb"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_66852c703488c",
+            "label": "Executive Director Name",
+            "name": "executive_director_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "recommended_upper_limit": 0,
+            "recommended_lower_limit": 0,
+            "required_message": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66852c863488d",
+            "label": "Executive Director Email",
+            "name": "executive_director_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "required_message": "",
+            "show_in_graphql": 1,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6699215f73229",
+            "label": "Latitude",
+            "name": "latitude",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_669921b67322a",
+            "label": "Longitude",
+            "name": "longitude",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "community_region"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_display_title": "",
+    "acfe_meta": "",
+    "acfe_note": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "communityRegionAdvanced",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "CommunityRegion"
+    ],
+    "modified": 1721827752
+}

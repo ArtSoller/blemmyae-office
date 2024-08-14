@@ -1,0 +1,33 @@
+{
+    "name": "cra/administration",
+    "description": "Re-usable core functionality for admin and non-admin pages",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "alexandrkucherov",
+            "email": "avdkucherov@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Scm\\Acf_Extended\\": "includes/acf-extended/",
+            "Scm\\Advanced_Ads\\": "includes/advanced-ads/",
+            "Scm\\Advanced_Custom_Fields\\": "includes/advanced-custom-fields/",
+            "Scm\\Archived_Post_Status\\": "includes/archived-post-status/",
+            "Scm\\Custom_Post_Type_UI\\": "includes/custom-post-type-ui/",
+            "Scm\\WP_GraphQL\\": "includes/wp-graphql/",
+            "Scm\\": "includes/"
+        }
+    },
+    "require": {
+        "php": ">=8.2 || <8.3",
+        "icamys/php-sitemap-generator": "4.7.0",
+        "ext-json": "*",
+        "spatie/async": "^1.5"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    }
+}

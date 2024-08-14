@@ -1,0 +1,101 @@
+{
+    "name": "cra/blemmyae-ads",
+    "type": "wordpress-plugin",
+    "description": "Blemmyae Ads contains all custom functionality related to ads.",
+    "keywords": [
+        "plugin",
+        "blemmyae-ads"
+    ],
+    "homepage": "https://github.com/cra-repo/blemmyae-ads",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Gary Jones",
+            "homepage": "https://garyjones.io",
+            "role": "Developer"
+        },
+        {
+            "name": "Alexander Kucherov",
+            "homepage": "https://github.com/Zinkutal"
+        },
+        {
+            "name": "Konstantin Gusev",
+            "homepage": "https://guvkon.net"
+        }
+    ],
+    "require": {
+        "php": ">=8.2 || <8.3",
+        "brightnucleus/config": "^0.4",
+        "cedaro/wp-plugin": "^0.4",
+        "composer/installers": "^1.10"
+    },
+    "require-dev": {
+        "brain/monkey": "^2.6",
+        "brianium/paratest": "^6",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4 || ^0.5 || ^0.6 || ^0.7",
+        "humanmade/psalm-plugin-wordpress": "^2.0",
+        "infection/infection": "^0.21.4",
+        "inpsyde/php-coding-standards": "^1",
+        "phpunit/phpunit": "^9.0",
+        "roave/security-advisories": "dev-master",
+        "squizlabs/php_codesniffer": "^3.5",
+        "vimeo/psalm": "^4.7"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "infection/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Cra\\BlemmyaeAds\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cra\\BlemmyaeAds\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "mkdir -p logs"
+        ],
+        "post-update-cmd": [
+            "mkdir -p logs"
+        ],
+        "infection": "./vendor/bin/infection --no-progress",
+        "install-codestandards": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
+        "integration": "./vendor/bin/phpunit --testsuite integration",
+        "lint": [
+            "bin/php-lint",
+            "bin/xml-lint",
+            "@psalm"
+        ],
+        "paraunit": "./vendor/bin/paratest --testsuite unit",
+        "phpcbf": "phpcbf && phpcbf ./ --standard=.phpcs.xml.dist",
+        "phpcs": "phpcs && phpcs ./ --standard=.phpcs.xml.dist",
+        "prepare": [
+            "bash bin/install-wp-tests.sh wordpress_test root root localhost nightly"
+        ],
+        "psalm": "./vendor/bin/psalm --output-format=github",
+        "test": [
+            "@lint",
+            "@paraunit",
+            "@phpcs"
+        ],
+        "test-full": [
+            "@lint",
+            "@paraunit",
+            "@infection",
+            "@integration",
+            "@phpcs"
+        ],
+        "unit": "./vendor/bin/phpunit --testsuite unit"
+    }
+}

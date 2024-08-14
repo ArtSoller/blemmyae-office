@@ -1,0 +1,28 @@
+{
+    "name": "blemmyae-blocks",
+    "version": "1.2.1",
+    "description": "Blemmyae Blocks is a ...",
+    "main": "index.js",
+    "private": true,
+    "scripts": {
+        "build:docs": "rm -rf hookdocs/ && jsdoc --configure hookdoc-conf.json --verbose"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cra-repo/blemmyae-blocks.git"
+    },
+    "keywords": [
+        "plugin",
+        "blemmyae-blocks"
+    ],
+    "author": "Alexander Kucherov",
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/cra-repo/blemmyae-blocks/issues"
+    },
+    "homepage": "https://github.com/cra-repo/blemmyae-blocks#readme",
+    "devDependencies": {
+        "jsdoc": "^3.6.6",
+        "wp-hookdoc": "^0.2.0"
+    }
+}

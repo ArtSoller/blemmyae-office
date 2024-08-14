@@ -1,0 +1,20 @@
+{
+  "opts": {
+	"destination": "hookdocs",
+	"template": "node_modules/wp-hookdoc/template",
+	"recurse": true,
+	"readme": "./.github/hookdoc-tmpl/README.md"
+  },
+  "source": {
+	"include": [
+	  "./",
+	  "src"
+	],
+	"includePattern": ".+\\.(php|inc|js|tsx)?$",
+	"excludePattern": "(vendor/|node_modules/|hookdocs/)"
+  },
+  "plugins": [
+	"node_modules/wp-hookdoc/plugin",
+	"plugins/markdown"
+  ]
+}

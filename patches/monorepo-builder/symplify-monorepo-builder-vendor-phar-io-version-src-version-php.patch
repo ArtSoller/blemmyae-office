@@ -1,0 +1,17 @@
+Index: vendor/phar-io/version/src/Version.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vendor/phar-io/version/src/Version.php b/vendor/phar-io/version/src/Version.php
+--- a/vendor/phar-io/version/src/Version.php	(revision 0a069637352968ed8970b783c4459299efac87e2)
++++ b/vendor/phar-io/version/src/Version.php	(date 1674116921832)
+@@ -163,7 +163,7 @@
+             )?
+             (?:
+                 -
+-                (?<PreReleaseSuffix>(?:(dev|beta|b|rc|alpha|a|patch|p|pl)\\.?\\d*))
++                (?<PreReleaseSuffix>(?:(dev|beta|b|rc|alpha|a|patch|p|pl|preprod)\\.?\\d*))
+             )?
+             (?:
+                 \\+

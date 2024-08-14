@@ -1,0 +1,28 @@
+{
+  "name": "ct-learning",
+  "version": "1.2.3",
+  "description": "Post Learning & related Taxonomy Learning Types.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build:docs": "rm -rf hookdocs/ && jsdoc -c hookdoc-conf.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cra-repo/ct-learning.git"
+  },
+  "keywords": [
+    "plugin",
+	"ct-learning"
+  ],
+  "author": "Alexander Kucherov",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cra-repo/ct-learning/issues"
+  },
+  "homepage": "https://github.com/cra-repo/ct-learning#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+	"wp-hookdoc": "^0.2.0"
+  }
+}

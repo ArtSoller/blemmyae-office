@@ -1,0 +1,20 @@
+{
+    "id": "host-2",
+    "firstname": "Fake Adrian",
+    "lastname": "Sanabria Test",
+    "title": "Director of Product Marketing",
+    "company": "Valence Security",
+    "bio": "Adrian is an outspoken researcher that doesn't shy away from uncomfortable truths. He loves to write about the security industry, tell stories, and still sees the glass as half full.",
+    "skype": "adrian.sanabria",
+    "website": "https:\/\/valencesecurity.com",
+    "twitter": "@sawaba",
+    "discord": "@sawaba",
+    "linkedin": "https:\/\/www.linkedin.com\/in\/adrian-sanabria",
+    "instagram": null,
+    "facebook": null,
+    "mastodon": null,
+    "bluesky": null,
+    "threads": null,
+    "github": null,
+    "headshot": "https:\/\/files.securityweekly.com\/images\/host\/PXL_20210503_222948593-0-0.jpg"
+}

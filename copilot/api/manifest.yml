@@ -1,0 +1,74 @@
+# The manifest for the "api" service. Docs: https://aws.github.io/copilot-cli/docs/manifest/lb-web-service/
+name: api
+type: Backend Service
+
+deployment:
+  rolling: default
+
+http:
+  path: '/'
+  stickiness: false
+  healthcheck:
+    port: 8080
+    path: /graphql?api&query=%7B__typename%7D
+    success_codes: '200-399'
+    interval: 30s
+    timeout: 10s
+    healthy_threshold: 9
+    unhealthy_threshold: 2
+    grace_period: 300s
+
+image:
+  location: 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/api:${IMAGE_TAG}
+  port: 8080
+
+cpu: 1024
+memory: 2048
+count:
+  range: 2-4
+  cooldown:
+    in: 30s
+    out: 60s
+  cpu_percentage: 35
+  memory_percentage: 55
+exec: true
+network:
+  connect: true
+  vpc:
+    security_groups:
+      - from_cfn: ${COPILOT_APPLICATION_NAME}-${COPILOT_ENVIRONMENT_NAME}-wpSecurityGroup
+    # @todo: Move under private - recreate service.
+    #  placement: private
+
+storage:
+  volumes:
+    wpUserData:
+      path: /bitnami/wordpress
+      read_only: false
+      efs: true
+
+variables:
+  MYSQL_CLIENT_FLAVOR: mysql
+  PHP_MEMORY_LIMIT: 1536m
+  WORDPRESS_SKIP_BOOTSTRAP: yes
+  WORDPRESS_PLUGINS: none
+  WORDPRESS_DATA_TO_PERSIST: wp-config.php wp-content/uploads
+  WORDPRESS_EXTRA_CLI_ARGS: --allow-root
+
+secrets:
+  WP_SECRET:
+    from_cfn: ${COPILOT_APPLICATION_NAME}-${COPILOT_ENVIRONMENT_NAME}-wpAuroraSecret
+
+environments:
+  production:
+    cpu: 2048
+    memory: 4096
+    count:
+      range: 5-20
+      cooldown:
+        in: 30s
+        out: 60s
+      cpu_percentage: 65
+      memory_percentage: 70
+    variables:
+      PHP_MEMORY_LIMIT: 3072m

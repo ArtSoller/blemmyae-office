@@ -1,0 +1,19 @@
+Subject: [PATCH] xkey header added
+---
+Index: src/Utils/QueryAnalyzer.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Utils/QueryAnalyzer.php b/src/Utils/QueryAnalyzer.php
+--- a/src/Utils/QueryAnalyzer.php	(revision 162424b8b1afeb2bf706dd08beca5783f80c1db3)
++++ b/src/Utils/QueryAnalyzer.php	(date 1707992033360)
+@@ -746,6 +746,8 @@
+ 		if ( ! empty( $keys ) ) {
+ 			$headers['X-GraphQL-Query-ID'] = $this->query_id ?: null;
+ 			$headers['X-GraphQL-Keys']     = $keys['keys'] ?: null;
++            # @todo: Redo on varnish before consumption.
++            $headers['xkey'] = $headers['X-GraphQL-Keys'];
+ 		}
+ 
+ 		return $headers;

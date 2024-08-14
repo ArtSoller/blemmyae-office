@@ -1,0 +1,23 @@
+{
+    "id": "speaker-4",
+    "swoogoId": 9900004,
+    "firstName": "Greg Co-Chair",
+    "middleName": "",
+    "lastName": "Davies Cincinnati",
+    "bio": "Amet dolor elit quis. Adipisicing do non nisi nulla aliqua aliqua eu sit. Excepteur eiusmod sit veniam do adipisicing in sit eu mollit aute nostrud do ullamco adipisicing laborum. Tempor labore ad consequat ad et. Minim laborum adipisicing in deserunt enim labore exercitation pariatur irure et. Est ut mollit aliquip tempor minim tempor irure tempor nisi anim irure. Non quis excepteur ea nulla aliqua labore minim cillum aliquip qui elit ea voluptate. Amet eu qui veniam ea eu sint ex culpa aliquip.",
+    "company": "Channel 5",
+    "jobTitle": "Comedian",
+    "phone": "0123456789",
+    "email": "greg4.davies4@example.com",
+    "twitterHandle": "@Taskmaster",
+    "headshotUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/AlexHorne-byPhilipRomano.jpg",
+    "directLink": "",
+    "birthDate": "",
+    "swoogoHash": "fugiat ullamco laboris veniam officia",
+    "regionsCollection": [
+        {
+            "speakerType": "Community Director",
+            "eventRegion": "Detroit"
+        }
+    ]
+}

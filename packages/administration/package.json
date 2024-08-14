@@ -1,0 +1,15 @@
+{
+  "name": "administration",
+  "version": "1.14.0",
+  "description": "Custom utitility",
+  "main": "src/index.js",
+  "repository": "https://github.com/cra-repo/administration.git",
+  "author": "alexandrkucherov <zinkutal@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@wordpress/scripts": "^27.1.0"
+  },
+  "scripts": {
+    "build": "wp-scripts build"
+  }
+}

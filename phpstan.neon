@@ -1,0 +1,49 @@
+includes:
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+
+parameters:
+    # https://phpstan.org/user-guide/rule-levels
+    level: 8
+    fileExtensions:
+    	- php
+    	- inc
+    bootstrapFiles:
+        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+        - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
+        - vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
+        - vendor/axepress/wp-graphql-stubs/wp-graphql-stubs.php
+    ignoreErrors:
+        - '#Function acfe_update_setting not found.#'
+        - '#Call to static method get_instance\(\) on an unknown class Advanced_Ads_Select.#'
+        - '#Access to constant PLACEMENT on an unknown class Advanced_Ads_Select.#'
+        - '#Call to static method inject_in_content\(\) on an unknown class Advanced_Ads_Placements.#'
+        - '#Call to static method render_option\(\) on an unknown class Advanced_Ads_Admin_Options.#'
+        - '#Access to constant AD_GROUP_TAXONOMY on an unknown class Advanced_Ads.#'
+        - '#Class acfe_dynamic_block_types not found.#'
+        - '#Class acfe_dynamic_options_pages not found.#'
+        #- '#Class Cra\\WebhookConsumer\\BlemmyaeWebhookConsumerStreamConnector extends unknown class WP_Stream\\Connector.#'
+    paths:
+        - packages/administration/includes/
+        - packages/administration/ri/
+        - packages/blemmyae-ads/src/
+        - packages/blemmyae-applications/includes/
+        - packages/blemmyae-blocks/src/
+        - packages/blemmyae-blocks/ri/
+        - packages/blemmyae-deployment/src/
+        - packages/blemmyae-deployment/ri/
+        - packages/blemmyae-ppworks/src/
+        - packages/blemmyae-ppworks/ri/
+        - packages/blemmyae-webhook-consumer/src/
+        - packages/ct-company-profile/src/
+        - packages/ct-editorial/src/
+        - packages/ct-landing/src/
+        - packages/ct-learning/src/
+        - packages/ct-newsletter/src/
+        - packages/ct-people/src/
+        - packages/ct-product-profile/src/
+        - packages/ct-whitepaper/src/
+        - packages/gb-collection/src/
+        - packages/integrations-webhook-messenger/lib/
+    excludePaths:
+        # todo see commented ignoreErrors rule
+        - packages/blemmyae-webhook-consumer/src/BlemmyaeWebhookConsumerStreamConnector.php

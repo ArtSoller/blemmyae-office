@@ -1,0 +1,28 @@
+{
+  "name": "gb-collection",
+  "version": "1.7.16",
+  "description": "Widget used to render list of posts",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build:docs": "rm -rf hookdocs/ && jsdoc --configure hookdoc-conf.json --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cra-repo/gb-collection.git"
+  },
+  "keywords": [
+    "plugin",
+	"gb-collection"
+  ],
+  "author": "Alexander Kucherov",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cra-repo/gb-collection/issues"
+  },
+  "homepage": "https://github.com/cra-repo/gb-collection#readme",
+  "devDependencies": {
+    "jsdoc": "^4.0.2",
+	"wp-hookdoc": "^0.2.0"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "ct-newsletter",
+  "version": "1.1.2",
+  "description": "Post Newsletter & taxonomies: Newsletter Types.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build:docs": "rm -rf hookdocs/ && jsdoc -c hookdoc-conf.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cra-repo/ct-newsletter.git"
+  },
+  "keywords": [
+    "plugin",
+	"ct-newsletter"
+  ],
+  "author": "Alexander Kucherov",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cra-repo/ct-newsletter/issues"
+  },
+  "homepage": "https://github.com/cra-repo/ct-newsletter#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+	"wp-hookdoc": "^0.2.0"
+  }
+}

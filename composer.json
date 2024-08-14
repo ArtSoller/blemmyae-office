@@ -1,0 +1,457 @@
+{
+    "name": "cra/wordpress",
+    "description": "CRA Portal",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "alexandrkucherov",
+            "email": "avdkucherov@gmail.com"
+        },
+        {
+            "name": "Konstantin Gusev",
+            "email": "guvkon.net@icloud.com"
+        },
+        {
+            "name": "Gary Jones",
+            "homepage": "https://garyjones.io",
+            "role": "Developer"
+        },
+        {
+            "name": "Alexander Kucherov",
+            "homepage": "https://github.com/Zinkutal"
+        },
+        {
+            "name": "Eugene Yakovenko",
+            "homepage": "https://github.com/yakoveka"
+        }
+    ],
+    "require": {
+        "10up/10up-experience": "1.11.1",
+        "99designs/phumbor": "1.2.*",
+        "brightnucleus/config": "^0.4",
+        "cedaro/wp-plugin": "^0.4",
+        "composer/installers": "^1.10",
+        "cra/acfe-pro": "^0.8.9",
+        "cra/administration": "*",
+        "cra/blemmyae-ads": "*",
+        "cra/blemmyae-applications": "*",
+        "cra/blemmyae-blocks": "*",
+        "cra/blemmyae-deployment": "*",
+        "cra/blemmyae-ppworks": "*",
+        "cra/blemmyae-webhook-consumer": "*",
+        "cra/composer-autoload": "1.0.0",
+        "cra/cra-block-webcast-speaker": "*",
+        "cra/cra-thumbor": "*",
+        "cra/ct-company-profile": "*",
+        "cra/ct-editorial": "*",
+        "cra/ct-landing": "*",
+        "cra/ct-learning": "*",
+        "cra/ct-newsletter": "*",
+        "cra/ct-people": "*",
+        "cra/ct-product-profile": "*",
+        "cra/ct-whitepaper": "*",
+        "cra/gb-collection": "*",
+        "cra/integrations-webhook-messenger": "*",
+        "cra/marketo-api": "0.1.4",
+        "cweagans/composer-patches": "~1.7.2",
+        "deliciousbrains-plugin/wp-offload-media": "3.2.5",
+        "ext-dom": "*",
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "ext-xmlwriter": "*",
+        "ext-zip": "*",
+        "hum/hum_cdp": "1.2.0",
+        "humanmade/ludicrousdb": "5.0.6",
+        "icamys/php-sitemap-generator": "4.7.0",
+        "johnpbloch/wordpress-core": "6.4.2",
+        "johnpbloch/wordpress-core-installer": "2.0.0",
+        "nette/php-generator": "^4.1",
+        "php": ">=8.2 || <8.3",
+        "phpseclib/phpseclib": "~3.0",
+        "pristas-peter/wp-graphql-gutenberg": "0.4.1",
+        "psr/log": "^1.1",
+        "shuchkin/simplexlsx": "^1.0.19",
+        "spatie/async": "^1.5",
+        "symfony/amazon-sqs-messenger": "6.3.*",
+        "symfony/messenger": "6.3.*",
+        "symfony/polyfill-php80": "^1.28",
+        "timber/timber": "^1.18",
+        "valu/wp-graphql-offset-pagination": "dev-master",
+        "wordpress/release-instructions": "1.0.6",
+        "wp-graphql/wp-graphql": "1.19.0",
+        "wp-graphql/wp-graphql-acf": "0.6.1",
+        "wp-graphql/wp-graphql-jwt-authentication": "v0.7.0",
+        "wp-graphql/wp-graphql-tax-query": "v0.2.0",
+        "wpackagist-plugin/advanced-ads": "1.48.1",
+        "wpackagist-plugin/archived-post-status": "0.3.8",
+        "wpackagist-plugin/convert-to-blocks": "1.2.1",
+        "wpackagist-plugin/custom-post-type-permalinks": "3.5.2",
+        "wpackagist-plugin/custom-post-type-ui": "1.15.1",
+        "wpackagist-plugin/debug-bar": "1.1.4",
+        "wpackagist-plugin/debug-bar-elasticpress": "3.1.0",
+        "wpackagist-plugin/delete-expired-transients": "2.0.7",
+        "wpackagist-plugin/disable-comments": "2.4.5",
+        "wpackagist-plugin/duplicate-post": "4.5",
+        "wpackagist-plugin/elasticpress": "5.0.2",
+        "wpackagist-plugin/google-authenticator": "0.54",
+        "wpackagist-plugin/index-wp-mysql-for-speed": "1.4.15",
+        "wpackagist-plugin/jwt-authentication-for-wp-rest-api": "1.3.4",
+        "wpackagist-plugin/tablepress": "2.1.8",
+        "wpackagist-plugin/redirection": "5.3.10",
+        "wpackagist-plugin/remove-cpt-base": "6.4",
+        "wpackagist-plugin/rvg-optimize-database": "5.2.2",
+        "wpackagist-plugin/scheduled-post-trigger": "3.2",
+        "wpackagist-plugin/stellate": "0.1.6",
+        "wpackagist-plugin/stream": " 3.10.0",
+        "wpackagist-plugin/user-switching": "1.7.2",
+        "wpackagist-plugin/wp-crontrol": "1.16.1",
+        "wpackagist-plugin/wp-dbmanager": "2.80.9",
+        "wpackagist-plugin/wp-ses": "1.6.6",
+        "wpackagist-plugin/wp-sweep": "1.1.8",
+        "wpackagist-plugin/wp-term-images": "1.0.0",
+        "wpengine/advanced-custom-fields-pro": "6.2.4",
+        "wp-graphql/wp-graphql-smart-cache": "^1.3",
+        "wpackagist-plugin/redis-cache": "2.5.2"
+    },
+    "require-dev": {
+        "axepress/wp-graphql-stubs": "^1.18",
+        "brain/monkey": "^2.6",
+        "brianium/paratest": "^6",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4 || ^0.5 || ^0.6 || ^0.7",
+        "humanmade/psalm-plugin-wordpress": "^2.0",
+        "infection/infection": "^0.21.4",
+        "inpsyde/php-coding-standards": "^1",
+        "phpunit/phpunit": "^9.0",
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-deprecation-rules": "^1.1",
+        "php-stubs/acf-pro-stubs": "^6.1",
+        "php-stubs/wordpress-stubs": "^6.4",
+        "roave/security-advisories": "dev-master",
+        "squizlabs/php_codesniffer": "^3.5",
+        "symplify/monorepo-builder": "11.*",
+        "symplify/vendor-patches": "^11.1",
+        "vimeo/psalm": "^4.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cra\\BlemmyaeAds\\": "packages/blemmyae-ads/src/",
+            "Cra\\BlemmyaeApplications\\": "packages/blemmyae-applications/includes/",
+            "Cra\\BlemmyaeApplications\\WP_GraphQL\\": "packages/blemmyae-applications/includes/wp-graphql/",
+            "Cra\\BlemmyaeBlocks\\": "packages/blemmyae-blocks/src/",
+            "Cra\\BlemmyaeDeployment\\": "packages/blemmyae-deployment/src/",
+            "Cra\\BlemmyaePpworks\\": "packages/blemmyae-ppworks/src/",
+            "Cra\\CtCompanyProfile\\": "packages/ct-company-profile/src/",
+            "Cra\\CtEditorial\\": "packages/ct-editorial/src/",
+            "Cra\\CtLanding\\": "packages/ct-landing/src/",
+            "Cra\\CtLearning\\": "packages/ct-learning/src/",
+            "Cra\\CtNewsletter\\": "packages/ct-newsletter/src/",
+            "Cra\\CtPeople\\": "packages/ct-people/src/",
+            "Cra\\CtProductProfile\\": "packages/ct-product-profile/src/",
+            "Cra\\CtWhitepaper\\": "packages/ct-whitepaper/src/",
+            "Cra\\GbCollection\\": "packages/gb-collection/src/",
+            "Cra\\Integrations\\WebhookMessenger\\": "packages/integrations-webhook-messenger/lib/",
+            "Cra\\Thumbor\\": "packages/cra-thumbor/src/",
+            "Cra\\WebhookConsumer\\": "packages/blemmyae-webhook-consumer/src/",
+            "Scm\\": "packages/administration/includes/",
+            "Scm\\Acf_Extended\\": "packages/administration/includes/acf-extended/",
+            "Scm\\Advanced_Ads\\": "packages/administration/includes/advanced-ads/",
+            "Scm\\Advanced_Custom_Fields\\": "packages/administration/includes/advanced-custom-fields/",
+            "Scm\\Archived_Post_Status\\": "packages/administration/includes/archived-post-status/",
+            "Scm\\Custom_Post_Type_UI\\": "packages/administration/includes/custom-post-type-ui/",
+            "Scm\\WP_GraphQL\\": "packages/administration/includes/wp-graphql/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cra\\BlemmyaeAds\\Tests\\": "packages/blemmyae-ads/tests/",
+            "Cra\\BlemmyaeApplications\\Tests\\": "packages/blemmyae-applications/tests/",
+            "Cra\\BlemmyaeBlocks\\Tests\\": "packages/blemmyae-blocks/tests/",
+            "Cra\\BlemmyaeDeployment\\Tests\\": "packages/blemmyae-deployment/tests/",
+            "Cra\\BlemmyaePpworks\\Tests\\": "packages/blemmyae-ppworks/tests/",
+            "Cra\\CtCompanyProfile\\Tests\\": "packages/ct-company-profile/tests/",
+            "Cra\\CtEditorial\\Tests\\": "packages/ct-editorial/tests/",
+            "Cra\\CtLanding\\Tests\\": "packages/ct-landing/tests/",
+            "Cra\\CtLearning\\Tests\\": "packages/ct-learning/tests/",
+            "Cra\\CtNewsletter\\Tests\\": "packages/ct-newsletter/tests/",
+            "Cra\\CtPeople\\Tests\\": "packages/ct-people/tests/",
+            "Cra\\CtProductProfile\\Tests\\": "packages/ct-product-profile/tests/",
+            "Cra\\CtWhitepaper\\Tests\\": "packages/ct-whitepaper/tests/",
+            "Cra\\GbCollection\\Tests\\": "packages/gb-collection/tests/",
+            "Cra\\Thumbor\\": "packages/cra-thumbor/src/",
+            "Cra\\WebhookConsumer\\Tests\\": "packages/blemmyae-webhook-consumer/tests/"
+        }
+    },
+    "repositories": [
+        {
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ],
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        {
+            "type": "composer",
+            "url": "https://connect.advancedcustomfields.com"
+        },
+        {
+            "type": "composer",
+            "url": "https://composer.deliciousbrains.com"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:10up/10up-experience.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:wp-graphql/wp-graphql.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:wp-graphql/wp-graphql-acf.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:pristas-peter/wp-graphql-gutenberg.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:wp-graphql/wp-graphql-jwt-authentication.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:wp-graphql/wp-graphql-smart-cache.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:wp-graphql/wp-graphql-tax-query.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:JoshuaJarman/wp-graphql-offset-pagination"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Zinkutal/release-instructions"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/administration"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/blemmyae-ads"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/blemmyae-applications"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/blemmyae-blocks"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/blemmyae-deployment"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/blemmyae-ppworks"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/blemmyae-webhook-consumer"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/composer-autoload"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/cra-block-webcast-speaker"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/ct-company-profile"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/ct-editorial"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/ct-landing"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/ct-learning"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/ct-newsletter"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/ct-people"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/ct-product-profile"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/ct-whitepaper"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/gb-collection"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/integrations-webhook-messenger"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/cra-repo/cra-thumbor"
+        },
+        {
+            "package": {
+                "name": "hum/hum_cdp",
+                "source": {
+                    "url": "https://github.com/cra-repo/hum-cdp.git",
+                    "type": "git",
+                    "reference": "main"
+                },
+                "version": "1.2.0",
+                "type": "wordpress-plugin"
+            },
+            "type": "package"
+        },
+        {
+            "package": {
+                "name": "cra/acfe-pro",
+                "source": {
+                    "url": "https://github.com/cra-repo/acfe-pro.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "type": "wordpress-plugin",
+                "version": "0.8.9.5"
+            },
+            "type": "package"
+        }
+    ],
+    "extra": {
+        "enable-patching": true,
+        "patches-file": "composer.patches.json",
+        "installer-paths": {
+            "wp-content/mu-plugins/{$name}": [
+                "type:wordpress-muplugin"
+            ],
+            "wp-content/plugins/{$name}": [
+                "type:wordpress-plugin"
+            ],
+            "wp-content/themes/{$name}": [
+                "type:wordpress-theme"
+            ]
+        },
+        "composer-exit-on-patch-failure": true
+    },
+    "config": {
+        "process-timeout": 0,
+        "allow-plugins": {
+            "pivvenit/acf-pro-installer": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "johnpbloch/wordpress-core-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "infection/extension-installer": true,
+            "composer/package-versions-deprecated": true
+        }
+    },
+    "scripts": {
+        "mono": [
+            "vendor/bin/monorepo-builder"
+        ],
+        "mono-bi": [
+            "@mono bump-interdependency"
+        ],
+        "mono-m": [
+            "@mono merge"
+        ],
+        "mono-r": [
+            "@mono release"
+        ],
+        "mono-rp": [
+            "@mono release patch"
+        ],
+        "mono-rt": [
+            "@mono --dry-run release"
+        ],
+        "mono-pa": [
+            "@mono package-alias"
+        ],
+        "mono-pj": [
+            "@mono packages-json"
+        ],
+        "mono-v": [
+            "@mono validate"
+        ],
+        "packages-symlink": [
+            "ls -d packages/* | cut -f2 -d '/' | xargs -I % sh -c '(rm -f wp-content/plugins/% || echo \"[%] symlink was already purged or does not exist\") && ln -s $(pwd)/packages/% wp-content/plugins/%'"
+        ],
+        "patch": [
+            "vendor/bin/vendor-patches generate"
+        ],
+        "wordpress-post-install": [
+            "cat scripts/wp-core-cleanup-list.txt | xargs -I % sh -c '[ -d % ] && rm -r % || echo % was already cleaned up'",
+            "[ -d wordpress ] && (rm -r wordpress/wp-content && rm wordpress/composer.json && mv wordpress/* . && rm -r wordpress) || echo Forgot to run composer update?",
+            "[ -d wp-content/mu-plugins/composer-autoload ] && (mv wp-content/mu-plugins/composer-autoload/composer-autoload.php wp-content/mu-plugins/composer-autoload.php && rm -r wp-content/mu-plugins/composer-autoload) || echo Forgot to run composer update?",
+            "[ -d wp-content/plugins/advanced-ads/modules/gutenberg ] && (rm -r wp-content/plugins/advanced-ads/modules/gutenberg) || echo Forgot to run composer update?"
+        ],
+        "post-install-cmd": [
+            "@wordpress-post-install"
+        ],
+        "post-update-cmd": [
+            "@wordpress-post-install"
+        ],
+        "test-blemmyae-blocks": [
+            "./vendor/bin/phpunit ./packages/blemmyae-blocks/tests/Unit"
+        ],
+        "phpcs": [
+            "phpcs --file-list=phpcs/scopes/blem.txt --standard=phpcs/phpcs.xml -v --extensions=php"
+        ],
+        "phpcbf": [
+            "phpcbf --file-list=phpcs/scopes/blem.txt --standard=phpcs/phpcs.xml -v --extensions=php"
+        ],
+        "codegen": [
+            "/bin/bash scripts/codegen/codegen.sh"
+        ],
+        "phpstan": [
+            "vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=1G"
+        ]
+    },
+    "replace": {
+        "cra/administration": "3.157.0",
+        "cra/blemmyae-ads": "3.157.0",
+        "cra/blemmyae-applications": "3.157.0",
+        "cra/blemmyae-blocks": "3.157.0",
+        "cra/blemmyae-deployment": "3.157.0",
+        "cra/blemmyae-ppworks": "3.157.0",
+        "cra/blemmyae-webhook-consumer": "3.157.0",
+        "cra/cra-block-webcast-speaker": "3.157.0",
+        "cra/cra-thumbor": "3.157.0",
+        "cra/ct-company-profile": "3.157.0",
+        "cra/ct-editorial": "3.157.0",
+        "cra/ct-landing": "3.157.0",
+        "cra/ct-learning": "3.157.0",
+        "cra/ct-newsletter": "3.157.0",
+        "cra/ct-people": "3.157.0",
+        "cra/ct-product-profile": "3.157.0",
+        "cra/ct-whitepaper": "3.157.0",
+        "cra/gb-collection": "3.157.0",
+        "cra/integrations-webhook-messenger": "3.157.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

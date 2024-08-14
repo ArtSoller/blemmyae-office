@@ -1,0 +1,10 @@
+/**
+ * Styles
+ */
+
+/*
+ * Hide default slug field.
+ */
+.edit-post-post-url {
+  display: none;
+}

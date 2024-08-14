@@ -1,0 +1,6 @@
+# There's a hard limit of 10 Log Resource Policies.
+# We need to remove creation of one by copilot.
+# And then use the following command to set the blank common policy on top of everything (it's already should be done).
+# aws logs put-resource-policy --policy-name "copilot-app-LogResourcePolicy" --policy-document "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"StateMachineToCloudWatchLogs\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"delivery.logs.amazonaws.com\"},\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Resource\":\"arn:aws:logs:us-east-2:361493004146:log-group:/copilot/*:log-stream:*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"361493004146\"},\"ArnLike\":{\"aws:SourceArn\":\"arn:aws:logs:us-east-2:361493004146:*\"}}}]}"
+- op: remove
+  path: /Resources/LogResourcePolicy

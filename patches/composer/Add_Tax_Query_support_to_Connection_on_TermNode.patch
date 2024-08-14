@@ -1,0 +1,21 @@
+Index: src/Registry/Utils/TermObject.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Registry/Utils/TermObject.php b/src/Registry/Utils/TermObject.php
+--- a/src/Registry/Utils/TermObject.php
++++ b/src/Registry/Utils/TermObject.php	(date 1701942192360)
+@@ -244,8 +244,12 @@
+ 									'field'            => 'term_id',
+ 									'include_children' => false,
+ 								],
++                                ...($args['where']['taxQuery'] ?? [])
+ 							]
+ 						);
++
++                        $resolver->set_query_arg('fields', 'ids');
++                        $resolver->set_query_arg('post_count', $args['first'] ?? 10);
+
+ 						return $resolver->get_connection();
+ 					},

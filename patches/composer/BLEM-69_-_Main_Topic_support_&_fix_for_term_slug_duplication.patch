@@ -1,0 +1,31 @@
+Index: CPTP/Module/Permalink.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/CPTP/Module/Permalink.php b/CPTP/Module/Permalink.php
+--- a/CPTP/Module/Permalink.php	(revision 5678f2378811af758494c7f82d493cd9e72095ed)
++++ b/CPTP/Module/Permalink.php	(date 1625196189054)
+@@ -256,17 +256,17 @@
+ 					 * @param WP_Post     $post     Post object.
+ 					 */
+ 					$term_obj  = apply_filters( 'cptp_post_link_term', $term_obj, $terms, $taxonomy, $post );
+-					$term_slug = $term_obj->slug;
+-
+-					if ( isset( $term_obj->parent ) && $term_obj->parent ) {
+-						$term_slug = CPTP_Util::get_taxonomy_parents_slug( $term_obj->parent, $taxonomy, '/', true ) . $term_slug;
+-					}
++					if ( $term_obj ) {
++                        $term_slug = $term_obj->slug;
++                    }
+ 				}
+ 
+ 				if ( isset( $term_slug ) ) {
+ 					$search[]  = '%' . $taxonomy . '%';
+ 					$replace[] = $term_slug;
+ 				}
++
++                $term_slug = '-';
+ 			}
+ 		}
+ 

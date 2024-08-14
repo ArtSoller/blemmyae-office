@@ -1,0 +1,20 @@
+Index: src/Schema/Types/BlockTypes.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Schema/Types/BlockTypes.php b/src/Schema/Types/BlockTypes.php
+--- a/src/Schema/Types/BlockTypes.php	(revision 0a069637352968ed8970b783c4459299efac87e2)
++++ b/src/Schema/Types/BlockTypes.php	(date 1674116921832)
+@@ -40,6 +40,11 @@
+ 	protected static function get_attribute_type( $name, $attribute, $prefix ) {
+ 		$type = null;
+ 
++		// @see: https://github.com/funkhaus/wp-gql-gutenberg/pull/41.
++		if ('templateLock' == $name) {
++			return $type;
++		}
++
+ 		if ( isset( $attribute['type'] ) ) {
+ 			switch ( $attribute['type'] ) {
+ 				case 'string':

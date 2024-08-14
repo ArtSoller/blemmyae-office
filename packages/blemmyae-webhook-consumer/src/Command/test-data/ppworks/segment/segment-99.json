@@ -1,0 +1,30 @@
+{
+    "id": "segment-99",
+    "show_in_feeds": true,
+    "title": "Orphaned Segment - FTS Vault",
+    "description": "AUTOMATICALLY DELETE ME",
+    "position": 2,
+    "s3_screenshot": "https://files.securityweekly.com/images/segment/PSW_790_Seg_1-0.jpg",
+    "type": "Technical Segment",
+    "publish_date": "2023-10-18 16:00:00",
+    "youtube_id": "Fd0oep3On4M",
+    "libsyn_audio_id": 27451647,
+    "s3_video": "https://files.securityweekly.com/PSW_790_Seg_1.mp4",
+    "s3_audio": "https://files.securityweekly.com/PSW_790_Seg_1_converted.mp3",
+    "announcements": [],
+    "articles": [],
+    "sponsors": [],
+    "hosts": [
+        "host-1"
+    ],
+    "guests": [],
+    "episode": "episode-vault-1",
+    "show": "show-1",
+    "categories": [
+        317
+    ],
+    "tags": [],
+    "gallery_images": [],
+    "transcription": "",
+    "transcription_file": ""
+}

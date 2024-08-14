@@ -1,0 +1,21 @@
+{
+  "id": "cerberus-event-empty",
+  "eventTitle": "External cerberus event with empty fields",
+  "eventDescription": "",
+  "venueName": "",
+  "venueAddress": "",
+  "venueCity": "",
+  "venueStateProvince": "",
+  "venueCountry": "",
+  "venuePhone": "",
+  "venueWebsite": "",
+  "organizerName": "",
+  "organizerPhone": "",
+  "organizerWebsite": "",
+  "organizerEmail": "",
+  "eventStartDate": "",
+  "eventEndDate": "",
+  "image": "",
+  "acceptTOS": false,
+  "application": ""
+}

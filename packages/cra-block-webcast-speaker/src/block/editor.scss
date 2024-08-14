@@ -1,0 +1,17 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-cra-webcast-speaker {
+  .speaker-wrap {
+	.speaker-image {
+	  button.image-button {
+		display: block;
+		height: auto;
+		padding: 0;
+	  }
+	}
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "ct-landing",
+  "version": "1.4.0",
+  "description": "Post Landing & related taxonomy Landing Types.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build:docs": "rm -rf hookdocs/ && jsdoc -c hookdoc-conf.json",
+    "build:admin-js": "wp-scripts build src/js/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cra-repo/ct-landing.git"
+  },
+  "keywords": [
+    "plugin",
+	"ct-landing"
+  ],
+  "author": "Alexander Kucherov",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cra-repo/ct-landing/issues"
+  },
+  "homepage": "https://github.com/cra-repo/ct-landing#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+	"wp-hookdoc": "^0.2.0",
+    "@wordpress/scripts": "^25.4.0"
+  }
+}

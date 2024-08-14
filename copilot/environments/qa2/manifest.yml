@@ -1,0 +1,27 @@
+# The manifest for the "qa2" environment. Docs: https://aws.github.io/copilot-cli/docs/manifest/environment/
+name: qa2
+type: Environment
+
+network:
+  vpc:
+    id: vpc-04f7603a382c89ea9
+    subnets:
+      public:
+        - id: subnet-0f988cb3754124e6e
+        - id: subnet-07a4af403aeac1c17
+      private:
+        - id: subnet-0ad4504e606ca4957
+        - id: subnet-0ed0805cd74113822
+
+http:
+  public:
+    certificates:
+      - arn:aws:acm:us-east-2:361493004146:certificate/205f9094-7c10-448b-b0a5-9befb373a93e
+    # @todo: Replace with `ELBSecurityPolicy-TLS13-1-3-2021-06` moving forward.
+    ssl_policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+  private:
+    ingress:
+      vpc: true
+
+observability:
+  container_insights: true

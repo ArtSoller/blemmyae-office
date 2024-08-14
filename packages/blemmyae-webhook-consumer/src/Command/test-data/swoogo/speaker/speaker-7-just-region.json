@@ -1,0 +1,22 @@
+{
+    "id": "speaker-7",
+    "swoogoId": 9900007,
+    "firstName": "Greg Just",
+    "middleName": "",
+    "lastName": "Davies Region",
+    "bio": "",
+    "company": "BBC\u00a0",
+    "jobTitle": "CISO\u00a0",
+    "phone": "",
+    "email": "",
+    "twitterHandle": "",
+    "headshotUrl": "",
+    "directLink": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Greg_Davies_2011.jpg",
+    "birthDate": "",
+    "swoogoHash": null,
+    "regionsCollection": [
+        {
+            "eventRegion": "Detroit"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+# Config files.
+.eslintrc.yml
+.prettierrc.yml
+.stylelintrc.yml
+
+composer.json
+composer.lock
+package.json
+package-lock.json
+
+# Etc.
+.ddev/*
+bin/*
+deploy-scripts/*
+docs/*
+etc/*
+
+# Core directory.
+wp-admin/
+wp-includes/*
+
+# Contrib in plugins.
+wp-content/mu-plugins/*
+# Vendor files in plugins.
+wp-content/plugins/*
+
+# Compiled files in the theme.
+wp-content/themes/*/dist/*
+# Vendor files in the theme.
+wp-content/themes/*/vendor/*
+wp-content/themes/*/assets/vendor/*
+
+# PHP files.
+**/*.php
+**/*.ri.inc
+
+# Minified files.
+**/*.min.js
+
+# CSS files (stylelint).
+**/*.css
+
+# OS Specific.
+**/__MACOSX/**

@@ -1,0 +1,3 @@
+# Minified compiled files.
+**/*.min.js
+**/*.min.js.map

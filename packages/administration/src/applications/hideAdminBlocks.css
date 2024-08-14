@@ -1,0 +1,20 @@
+/**
+ * Styles.
+ */
+
+/*
+ * Hide preview buttons.
+ */
+#preview-action,
+.block-editor-post-preview__dropdown {
+    display: none;
+}
+
+.components-panel__row.edit-post-post-author {
+    display: none;
+}
+
+/* Hide gutenberg typography option in sidebar. */
+.edit-post-sidebar .typography-block-support-panel {
+    display: none;
+}

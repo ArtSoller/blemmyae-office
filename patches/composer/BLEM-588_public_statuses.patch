@@ -1,0 +1,18 @@
+Index: models/monitor.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/models/monitor.php b/models/monitor.php
+--- a/models/monitor.php	
++++ b/models/monitor.php	(date 1655201716193)
+@@ -37,7 +37,8 @@
+ 		}
+ 
+ 		// Don't do anything if we're not published
+-		if ( $post->post_status !== 'publish' || $post_before->post_status !== 'publish' ) {
++		$allowed_statuses = \Scm\WP_GraphQL\Options::getPublicPostStatuses();
++		if ( !in_array($post->post_status, $allowed_statuses, true) || !in_array($post_before->post_status, $allowed_statuses, true) ) {
+ 			return false;
+ 		}
+ 

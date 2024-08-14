@@ -1,0 +1,26 @@
+Index: wp-graphcdn.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/wp-graphcdn.php b/wp-graphcdn.php
+--- a/wp-graphcdn.php	
++++ b/wp-graphcdn.php	(date 1667302302169)
+@@ -250,7 +250,7 @@
+  * pages and menu items.
+  */
+ add_action('wp_insert_post', function (int $post_id, WP_Post $post, bool $update) {
+-  $type = $GLOBALS['gcdn_typename_map'][$post->post_type];
++  $type = $GLOBALS['gcdn_typename_map'][$post->post_type] ?? null;
+   if (!$type) return;
+ 
+   if ($update) {
+@@ -285,7 +285,7 @@
+  * items.
+  */
+ add_action('deleted_post', function (int $post_id, WP_Post $post) {
+-  $type = $GLOBALS['gcdn_typename_map'][$post->post_type];
++  $type = $GLOBALS['gcdn_typename_map'][$post->post_type] ?? null;
+   if (!$type) return;
+   graphcdn_add_purge_entity($type, $post_id);
+ }, 10, 2);

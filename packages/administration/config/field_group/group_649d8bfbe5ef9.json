@@ -1,0 +1,181 @@
+{
+    "key": "group_649d8bfbe5ef9",
+    "title": "PPWorks Sponsor Program Advanced",
+    "fields": [
+        {
+            "key": "field_649d8bfdcb0f5",
+            "label": "Sponsor",
+            "name": "sponsor",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "post_type": [
+                "company_profile"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "max": "",
+            "save_custom": 0,
+            "save_post_status": "publish",
+            "acfe_add_post": 0,
+            "acfe_edit_post": 0,
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "0"
+            },
+            "required_message": "",
+            "allow_null": 0,
+            "ui": 1,
+            "save_post_type": "",
+            "min": "",
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_649d8d51cb0f6",
+            "label": "Landing Page URL",
+            "name": "landing_page_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "required_message": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_6579b460be3a5",
+            "label": "Is Active",
+            "name": "is_active",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "style": ""
+        },
+        {
+            "key": "field_6579b509be3a6",
+            "label": "Tier",
+            "name": "tier",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_659e9156ef3f1",
+            "label": "Brand",
+            "name": "brand",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65a13ce183b0d",
+            "label": "Brand Order",
+            "name": "brand_order",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "ppworks_sponsor_prog"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_display_title": "",
+    "acfe_meta": "",
+    "acfe_note": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "ppworksSponsorProgramAdvanced",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "PPWorksSponsorProgram"
+    ],
+    "modified": 1713451847
+}

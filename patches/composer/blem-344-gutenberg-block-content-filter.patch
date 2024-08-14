@@ -1,0 +1,17 @@
+Index: src/Blocks/Block.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Blocks/Block.php b/src/Blocks/Block.php
+--- a/src/Blocks/Block.php	(revision bacabca662698871ecc8b297c7af3b5b95d431c1)
++++ b/src/Blocks/Block.php	(date 1673264373949)
+@@ -200,7 +200,7 @@
+ 		$this->name            = $data['blockName'];
+ 		$this->postId          = $post_id;
+ 		$this->blockType       = $registry[ $this->name ];
+-		$this->originalContent = self::strip_newlines( $data['innerHTML'] );
++		$this->originalContent = apply_filters('the_content_block', self::strip_newlines($data['innerHTML']));
+ 		$this->saveContent     = self::parse_inner_content( $data );
+ 		$this->order           = $order;
+ 		$this->get_parent      = function () use ( &$parent ) {

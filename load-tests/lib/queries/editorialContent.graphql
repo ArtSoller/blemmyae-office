@@ -1,0 +1,521 @@
+query editorialContent($id: ID!, $applications: [ID!]!) {
+    editorialWithRelatedBlock(slug: $id, applications: $applications) {
+        id
+        databaseId
+        content
+        editorialAdvanced {
+            relatedBlock {
+                ...relatedBlock
+            }
+        }
+        ...editorialContentColumn
+    }
+}
+
+fragment relatedBlock on Editorial_Editorialadvanced_RelatedBlock {
+    title
+    numberOfItems
+    postType
+    options
+    taxonomyQuery {
+        queryArray {
+            terms {
+                __typename
+                databaseId
+            }
+        }
+    }
+    collection {
+        ...relatedBlockCollectionTeaser
+    }
+    resolvedPostCollection {
+        nodes {
+            __typename
+            ...relatedCollectionNative
+            ...teaserCard
+        }
+    }
+}
+
+fragment relatedBlockCollectionTeaser on Editorial_Editorialadvanced_RelatedBlock_collection {
+    deck
+    image {
+        ...mediaItem
+    }
+    imageCaption
+    post {
+        ...teaserCard
+    }
+    postTitle
+}
+
+fragment mediaItem on MediaItem {
+    sourceUrl
+    altText
+    caption
+    title
+    mediaDetails {
+        width
+        height
+    }
+    mediaAdvanced {
+        lqip
+    }
+}
+
+fragment teaserCard on ContentNode {
+    __typename
+    id
+    databaseId
+    ...editorialTeaserCard
+    ... on PpworksEpisode {
+        uri
+        title
+        date
+        ...gutenbergBlocks
+        ppworksPodcastBasic {
+            ...ppworksEpisodePodcastBasicVideo
+            featuredImage {
+                ...mediaItem
+            }
+        }
+        ppworksEpisodeAdvanced {
+            number
+            topics {
+                ...orderedTopic
+            }
+            show {
+                name
+                ... on PpworksShow {
+                    ppworksShowAdvanced {
+                        defaultImage {
+                            ...mediaItem
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ... on PpworksSegment {
+        uri
+        title
+        date
+        ...gutenbergBlocks
+        ppworksPodcastBasic {
+            ...ppworksSegmentPodcastBasicVideo
+            featuredImage {
+                ...mediaItem
+            }
+        }
+        ppworksSegmentAdvanced {
+            topics {
+                ...orderedTopic
+            }
+        }
+    }
+    ... on Learning {
+        uri
+        title
+        date
+        content
+        topics {
+            nodes {
+                __typename
+                id
+                children {
+                    nodes {
+                        id
+                    }
+                }
+            }
+        }
+        authorCollection {
+            author {
+                ...personPageLink
+            }
+        }
+        ...learningUrl
+        learningAdvanced {
+            featuredImage {
+                ...mediaItem
+            }
+        }
+        learningTaxonomy {
+            topic {
+                __typename
+                link
+                name
+                slug
+                id
+                uri
+            }
+        }
+    }
+    ... on Whitepaper {
+        id
+        uri
+        title
+        date
+        content
+        topics {
+            nodes {
+                id
+                children {
+                    nodes {
+                        id
+                    }
+                }
+            }
+        }
+        authorCollection {
+            author {
+                ...personPageLink
+            }
+        }
+        whitepaperAdvanced {
+            featuredImage {
+                ...mediaItem
+            }
+        }
+        whitepaperTaxonomy {
+            topic {
+                __typename
+                link
+                name
+                slug
+                id
+                uri
+            }
+        }
+    }
+    ... on ScAwardNominee {
+        title
+        ScAwardNomineeAdvanced {
+            category {
+                ... on ScAward {
+                    name
+                }
+            }
+            featuredImage {
+                ...mediaItem
+            }
+            summary
+            nominee {
+                ...awardsNomineeEntity
+            }
+        }
+    }
+}
+
+fragment editorialTeaserCard on Editorial {
+    id
+    databaseId
+    uri
+    title
+    date
+    topics {
+        nodes {
+            __typename
+            id
+            children {
+                nodes {
+                    id
+                }
+            }
+        }
+    }
+    authorCollection {
+        author {
+            ...personPageLink
+        }
+    }
+    editorialAdvanced {
+        deck
+        featuredImage {
+            ...mediaItem
+        }
+        featuredImageCaption
+    }
+    editorialTaxonomy {
+        type {
+            name
+        }
+        podcastShow {
+            name
+        }
+        topic {
+            __typename
+            link
+            name
+            slug
+            id
+            uri
+        }
+    }
+}
+
+fragment personPageLink on Person {
+    title
+    uri
+    slug
+    peopleAdvanced {
+        firstName
+        middleName
+        lastName
+    }
+}
+
+fragment gutenbergBlocks on BlockEditorContentNode {
+    blocks {
+        __typename
+        ...embedGutenbergBlock
+        ...headingGutenbergBlock
+        ...paragraphGutenbergBlock
+        ...imageGutenbergBlock
+        ...unsupportedGutenbergBlock
+    }
+}
+
+fragment embedGutenbergBlock on CoreEmbedBlock {
+    attributes {
+        __typename
+        ... on CoreEmbedBlockAttributes {
+            url
+            providerNameSlug
+            caption
+        }
+    }
+}
+
+fragment headingGutenbergBlock on CoreHeadingBlock {
+    attributes {
+        __typename
+        ... on CoreHeadingBlockAttributes {
+            content
+            level
+        }
+    }
+}
+
+fragment paragraphGutenbergBlock on CoreParagraphBlock {
+    attributes {
+        __typename
+        ... on CoreParagraphBlockAttributes {
+            content
+        }
+    }
+}
+
+fragment imageGutenbergBlock on CoreImageBlock {
+    attributes {
+        ... on CoreImageBlockAttributes {
+            id
+            caption
+            width
+            height
+        }
+    }
+    mediaItem {
+        node {
+            ...mediaItem
+        }
+    }
+}
+
+fragment unsupportedGutenbergBlock on Block {
+    __typename
+    saveContent
+}
+
+fragment ppworksEpisodePodcastBasicVideo on PpworksEpisode_Ppworkspodcastbasic {
+    s3Video
+    youtubeId
+}
+
+fragment orderedTopic on TermNode {
+    __typename
+    id
+    link
+    uri
+    name
+    slug
+}
+
+fragment ppworksSegmentPodcastBasicVideo on PpworksSegment_Ppworkspodcastbasic {
+    s3Video
+    youtubeId
+}
+
+fragment learningUrl on Learning {
+    uri
+    learningAdvanced {
+        vendor {
+            ...vendor
+        }
+    }
+}
+
+fragment vendor on Learning_Learningadvanced_Vendor {
+    __typename
+    ... on Learning_Learningadvanced_Vendor_Gotowebinar {
+        eventUrl
+    }
+    ... on Learning_Learningadvanced_Vendor_Swoogo {
+        url
+    }
+    ... on Learning_Learningadvanced_Vendor_MemberPortal {
+        link
+    }
+    ... on Learning_Learningadvanced_Vendor_Youtube {
+        url
+    }
+    ... on Learning_Learningadvanced_Vendor_ExternalEvent {
+        url
+    }
+}
+
+fragment awardsNomineeEntity on ScAwardNominee_Scawardnomineeadvanced_Nominee {
+    __typename
+    ... on Person {
+        peopleAdvanced {
+            bio
+            headshot {
+                ...mediaItem
+            }
+            companies {
+                jobTitle
+                company {
+                    ... on CompanyProfile {
+                        title
+                        companyProfileAdvanced {
+                            companyName
+                        }
+                    }
+                }
+            }
+        }
+        ...personDisplayName
+    }
+    ... on CompanyProfile {
+        title
+        companyProfileAdvanced {
+            companyName
+            about
+            logo {
+                ...mediaItem
+            }
+        }
+    }
+    ... on ProductProfile {
+        title
+        productProfileAdvanced {
+            logo {
+                ...mediaItem
+            }
+            productDescription
+            productName
+            companyName {
+                ... on CompanyProfile {
+                    title
+                    companyProfileAdvanced {
+                        companyName
+                    }
+                }
+            }
+        }
+    }
+}
+
+fragment personDisplayName on Person {
+    title
+    peopleAdvanced {
+        firstName
+        middleName
+        lastName
+    }
+}
+
+fragment relatedCollectionNative on CerberusDfpNativeAd {
+    __typename
+    id
+    databaseId
+}
+
+fragment editorialContentColumn on Editorial {
+    title
+    date
+    slug
+    modified
+    ...editorialOrderedTopic
+    ...gutenbergBlocks
+    ...editorialPageTaxonomy
+    editorialAdvanced {
+        featuredImageCaption
+        showFeaturedImage
+        hideAuthor
+        featuredImage {
+            ...mediaItem
+        }
+    }
+    authorCollection {
+        author {
+            ...withAuthor
+        }
+    }
+}
+
+fragment editorialOrderedTopic on Editorial {
+    topics {
+        nodes {
+            ...hierarchicalTopicNode
+        }
+    }
+    editorialTaxonomy {
+        topic {
+            ...orderedTopic
+        }
+    }
+}
+
+fragment hierarchicalTopicNode on Topic {
+    __typename
+    id
+    children {
+        nodes {
+            id
+        }
+    }
+}
+
+fragment editorialPageTaxonomy on Editorial {
+    editorialTaxonomy {
+        topic {
+            slug
+        }
+        brand {
+            slug
+            name
+        }
+        industry {
+            slug
+            name
+        }
+        region {
+            slug
+        }
+        type {
+            slug
+        }
+    }
+}
+
+fragment withAuthor on Person {
+    ...personPageLink
+    ...personDisplayName
+    peopleAdvanced {
+        bio
+        headshot {
+            ...mediaItem
+        }
+    }
+}

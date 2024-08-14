@@ -1,0 +1,113 @@
+{
+    "key": "group_60758158cd6c2",
+    "title": "Whitepaper Taxonomy",
+    "fields": [
+        {
+            "key": "field_6075818b362e5",
+            "label": "Topic",
+            "name": "topic",
+            "aria-label": "",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "taxonomy": [
+                "topic"
+            ],
+            "allow_terms": [
+                "all_topic"
+            ],
+            "allow_level": "",
+            "field_type": "select",
+            "min": "",
+            "max": "",
+            "default_value": [],
+            "return_format": "object",
+            "ui": 1,
+            "allow_null": 0,
+            "placeholder": "",
+            "multiple": 1,
+            "ajax": 1,
+            "save_terms": 1,
+            "load_terms": 1,
+            "populate_parental_terms": 0,
+            "display_hierarchical": 1,
+            "choices": [],
+            "search_placeholder": "",
+            "layout": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0
+        },
+        {
+            "key": "field_60758285be3fe",
+            "label": "Whitepaper Type",
+            "name": "whitepaper_type",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "taxonomy": "whitepaper_type",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "object",
+            "populate_parental_terms": 0,
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "0"
+            },
+            "multiple": 0,
+            "min": "",
+            "max": "",
+            "bidirectional_target": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "whitepaper"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_display_title": "",
+    "acfe_meta": "",
+    "acfe_note": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "whitepaperTaxonomy",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "Whitepaper"
+    ],
+    "modified": 1713451840
+}

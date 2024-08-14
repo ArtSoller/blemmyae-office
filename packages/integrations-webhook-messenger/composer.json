@@ -1,0 +1,37 @@
+{
+    "name": "cra/integrations-webhook-messenger",
+    "description": "Message and message handler for integrations webhook",
+    "type": "library",
+    "require": {
+        "php": ">=8.2 || <8.3",
+        "ext-json": "*",
+        "symfony/polyfill-php80": "^1.28",
+        "symfony/amazon-sqs-messenger": "6.3.*",
+        "symfony/messenger": "6.3.*"
+    },
+    "require-dev": {
+        "brain/monkey": "^2.6",
+        "phpunit/phpunit": "^9.0"
+    },
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Cra\\Integrations\\WebhookMessenger\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cra\\Integrations\\WebhookMessenger\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Konstantin Gusev",
+            "email": "guvkon.net@icloud.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "scripts": {
+        "unit": "./vendor/bin/phpunit --bootstrap tests/bootstrap.php tests"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "id": "speaker-3",
+    "swoogoId": 9900003,
+    "firstName": "Greg Co-Chair",
+    "middleName": "",
+    "lastName": "Davies Cincinnati",
+    "bio": "Qui sit pariatur proident culpa. Occaecat proident consectetur nostrud tempor. Do anim ad voluptate sunt duis velit excepteur non amet qui laborum elit consequat. Enim mollit cillum dolor commodo ex eiusmod labore velit ea cupidatat et consequat duis commodo pariatur. Amet ex eu veniam eu laboris laboris voluptate ut cupidatat excepteur est anim incididunt ea laboris. Sunt cupidatat elit anim. Dolor aliquip laboris ipsum pariatur cupidatat do voluptate nulla ut cillum sunt in.",
+    "company": "Channel 4",
+    "jobTitle": "Taskmaster",
+    "phone": "1234567890",
+    "email": "greg3.davies3@example.com",
+    "twitterHandle": "@Taskmaster",
+    "headshotUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Greg_Davies_2011.jpg",
+    "directLink": "",
+    "birthDate": "",
+    "swoogoHash": "et proident et reprehenderit deserunt",
+    "regionsCollection": [
+        {
+            "speakerType": "Co-Chair",
+            "eventRegion": "Cincinnati"
+        }
+    ]
+}

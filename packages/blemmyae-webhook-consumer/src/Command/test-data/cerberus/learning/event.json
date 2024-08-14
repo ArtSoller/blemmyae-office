@@ -1,0 +1,21 @@
+{
+  "id": "cerberus-event",
+  "eventTitle": "External cerberus event",
+  "eventDescription": "External cerberus event description",
+  "venueName": "Venue name",
+  "venueAddress": "Venue address",
+  "venueCity": "Venue city",
+  "venueStateProvince": "Venue state or province",
+  "venueCountry": "Venue country",
+  "venuePhone": "(345)434-4343",
+  "venueWebsite": "https://venue-website.com",
+  "organizerName": "Organizer name",
+  "organizerPhone": "(345)434-4343",
+  "organizerWebsite": "https://organizer-website.com",
+  "organizerEmail": "organizer_mail@gmail.com",
+  "eventStartDate": "2024-01-17T00:00:00.000Z",
+  "eventEndDate": "2024-01-18T00:00:00.000Z",
+  "image": "https://cerberus-event-submit.s3.us-east-2.amazonaws.com/images.jpeg",
+  "acceptTOS": true,
+  "application": "mssp"
+}

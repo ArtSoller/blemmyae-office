@@ -1,0 +1,40 @@
+{
+    "patches": {
+        "symplify/monorepo-builder": {
+            "BLEM-579: Switch CI to Monorepo": "./patches/monorepo-builder/symplify-monorepo-builder-src-dependencyupdater-php.patch",
+            "INF-63: Support preprod as prerelease SemVer": "./patches/monorepo-builder/symplify-monorepo-builder-vendor-phar-io-version-src-version-php.patch",
+            "PORT-1522: Automate version bump during release cycle": "./patches/monorepo-builder/symplify-monorepo-builder-disable-default-push-tag.patch"
+        },
+        "wp-graphql/wp-graphql": {
+            "BLEM-467: WPGraphQL update - 2": "./patches/composer/Add_Event_Date_Query_support_to_PostObject.patch",
+            "PORT-2247: Application Tax Query is not working on Topic.editorials field": "./patches/composer/Add_Tax_Query_support_to_Connection_on_TermNode.patch",
+            "PORT-2228: URL is returned in the URI field for TermNode": "./patches/composer/port-2228-uri-logic-based-on-frontend-path.patch",
+            "PORT-2317: Varnish for Blemmyae GraphQL Api": "./patches/composer/xkey_header_added.patch"
+        },
+        "wpackagist-plugin/jwt-authentication-for-wp-rest-api": {
+            "PORT-1771: API Key Request": "./patches/composer/port-1771-api-key-request.patch"
+        },
+        "pristas-peter/wp-graphql-gutenberg": {
+            "BLEM-344: Gutenberg block content filter": "./patches/composer/blem-344-gutenberg-block-content-filter.patch",
+            "BLEM-344: Gutenberg block attributes content filter": "./patches/composer/blem-344-gutenberg-block-attributes-content-filter.patch",
+            "PORT-1561: Contrib plugin - Upgrade plugins to major version - Tier 1": "./patches/composer/port-1561-could-not-determine-template-lock.patch",
+            "PORT-1669; API fatal errors with Media Items": "./patches/composer/port-1669-api-fatal-errors-with-meida-items.patch",
+            "PORT-2053 - Fix PHP warning": "./patches/composer/port-2053-fix-php-warning.patch"
+        },
+        "wpackagist-plugin/custom-post-type-permalinks": {
+            "BLEM-69: URL Structures": "./patches/composer/BLEM-69_-_Main_Topic_support_&_fix_for_term_slug_duplication.patch"
+        },
+        "wpackagist-plugin/redirection": {
+            "BLEM-588 - Allow more public statuses": "./patches/composer/BLEM-588_public_statuses.patch"
+        },
+        "wpackagist-plugin/graphcdn": {
+            "PORT-645 - Undefined array key": "./patches/composer/PORT-645_graphcdn_undefined_array_key.patch"
+        },
+        "wpackagist-plugin/google-authenticator": {
+            "PORT-1435 - Allow app password for REST API requests": "./patches/composer/google_auth_app_password_in_rest_api.patch"
+        },
+        "johnpbloch/wordpress-core": {
+            "PORT-1954 - Remove preview button": "./patches/composer/port-1954-remove-preview-button.patch"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "inline-ad-settings": {
+        "page_title": "Inline Ad Settings",
+        "menu_slug": "inline-ad-settings",
+        "menu_title": "Inline Ad Settings",
+        "capability": "edit_posts",
+        "position": "15",
+        "parent_slug": null,
+        "icon_url": "dashicons-media-code",
+        "redirect": true,
+        "post_id": "inline_ad_settings",
+        "autoload": false,
+        "update_button": "Update",
+        "updated_message": "Options Updated"
+    }
+}

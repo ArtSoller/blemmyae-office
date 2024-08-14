@@ -1,0 +1,58 @@
+﻿CATEGORY;SUBCATEGORY;TOPICS
+
+Architecture;Application Security;Container security
+Architecture;Application Security;DevOps
+Architecture;Application Security;Botnet
+Architecture;Cloud;Cloud Security
+Architecture;Endpoint security;IOT
+Architecture;Endpoint security;Hardware Security
+Architecture;Endpoint security;Mobile
+Architecture;Endpoint security;Application Isolation
+Architecture;Network security;Firewall
+Architecture;Network security;Wireless Security
+Architecture;Network security;Intrusion detection
+Architecture;Network security;DDOS
+Risk Management;Identity and Access;Remote access
+Risk Management;Identity and Access;Active Directory
+Risk Management;Data Security;Encryption
+Risk Management;Data Security;Data Loss Prevention
+Risk Management;Data Security;Backup and recovery
+Risk Management;Data Security;Secure file sharing
+Risk Management;Data Security;Breach
+Risk Management;Supply Chain;Third-party risk
+Risk Management;Asset Management;
+Strategy;Vulnerability management;Pen testing
+Strategy;Vulnerability management;Attack surface mgmt
+Strategy;Vulnerability management;Bug bounties
+Strategy;Vulnerability management;Configuration management
+Strategy;Vulnerability management;Attack simulation
+Strategy;Vulnerability management;Patch Management
+Strategy;Zero trust;
+Strategy;Incident response;TDR
+Strategy;Incident response;SOC
+Strategy;Incident response;SIEM
+Strategy;Incident response;Forensics
+Strategy;Security awareness;Training
+Strategy;Security awareness;Email security
+Strategy;Threat intelligence;OSINT
+Strategy;Threat intelligence;Social engineering
+Strategy;Threat intelligence;Threat hunting
+Strategy;Threat intelligence;Threat modeling
+Strategy;Threat intelligence;Security Research
+Strategy;Managed security;
+Strategy;Careers;Leadership
+Threats;Cyberespionage;APT
+Threats;Cybercrime;Cryptocurrency
+Threats;Malware;Ransomware
+Threats;Malware;Phishing
+Threats;Insider threat;Deception
+Threats;Physical Security;
+Policy;Compliance;Regulation
+Policy;Compliance;Legislation
+Policy;Compliance;Privacy
+Policy;Critical infrastructure;Election security
+Policy;Critical infrastructure;ICS security
+Policy;Privacy;
+Uncategorized;Unsubcategorized;Blue Team
+Uncategorized;Unsubcategorized;SC Awards
+Uncategorized;Unsubcategorized;Women in IT Security

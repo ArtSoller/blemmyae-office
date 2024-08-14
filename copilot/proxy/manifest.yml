@@ -1,0 +1,256 @@
+# The manifest for the "proxy" service.
+# Read the full specification for the "Load Balanced Web Service" type at:
+#  https://aws.github.io/copilot-cli/docs/manifest/lb-web-service/
+
+# Your service name will be used in naming your resources like log groups, ECS services, etc.
+name: proxy
+type: Load Balanced Web Service
+
+deployment:
+  rolling: default
+
+http:
+  path: '/'
+  alias: ['cms.cyberriskalliance.com', 'api.cyberriskalliance.com']
+  stickiness: false
+  version: 'http2'
+  healthcheck:
+    path: /_healthcheck
+    success_codes: '200'
+    interval: 10s
+    timeout: 5s
+    healthy_threshold: 3
+    unhealthy_threshold: 2
+    grace_period: 60s
+  additional_rules:
+    - path: 'graphql'
+      alias: ['cms.cyberriskalliance.com', 'api.cyberriskalliance.com']
+      stickiness: false
+      version: 'http1'
+      healthcheck:
+        path: /_healthcheck
+        success_codes: '200'
+        interval: 10s
+        timeout: 5s
+        healthy_threshold: 3
+        unhealthy_threshold: 2
+    - path: 'wp-json'
+      alias: [ 'cms.cyberriskalliance.com', 'api.cyberriskalliance.com' ]
+      stickiness: false
+      version: 'http1'
+      healthcheck:
+        path: /_healthcheck
+        success_codes: '200'
+        interval: 10s
+        timeout: 5s
+        healthy_threshold: 3
+        unhealthy_threshold: 2
+    # @see: https://www.nginx.com/blog/http2-module-nginx/#QandA
+    - path: 'wp-content/uploads/apps'
+      alias: [ 'cms.cyberriskalliance.com', 'api.cyberriskalliance.com' ]
+      stickiness: false
+      version: 'http1'
+      healthcheck:
+        path: /_healthcheck
+        success_codes: '200'
+        interval: 10s
+        timeout: 5s
+        healthy_threshold: 3
+        unhealthy_threshold: 2
+    - path: 'feed'
+      alias: [ 'cms.cyberriskalliance.com', 'api.cyberriskalliance.com' ]
+      stickiness: false
+      version: 'http1'
+      healthcheck:
+        path: /_healthcheck
+        success_codes: '200'
+        interval: 10s
+        timeout: 5s
+        healthy_threshold: 3
+        unhealthy_threshold: 2
+
+# @todo: Fully disable ipv6 - unsupported under vpc subnets.
+taskdef_overrides:
+  - path: ContainerDefinitions[0].SystemControls[-]
+    value:
+      namespace: net.ipv6.conf.all.disable_ipv6
+      value: 1
+  - path: ContainerDefinitions[0].SystemControls[-]
+    value:
+      namespace: net.ipv6.conf.default.disable_ipv6
+      value: 1
+  - path: ContainerDefinitions[0].SystemControls[-]
+    value:
+      namespace: net.ipv6.conf.eth0.disable_ipv6
+      value: 1
+  - path: ContainerDefinitions[0].SystemControls[-]
+    value:
+      namespace: net.ipv6.conf.eth1.disable_ipv6
+      value: 1
+  - path: ContainerDefinitions[0].SystemControls[-]
+    value:
+      namespace: net.ipv6.conf.lo.disable_ipv6
+      value: 1
+
+image:
+  location: 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/proxy:${IMAGE_TAG}
+  port: 443
+
+cpu: 1024
+memory: 2048
+count:
+  range: 1-3
+  cpu_percentage: 75
+  memory_percentage: 85
+exec: true
+network:
+  connect: true
+
+environments:
+  preprod:
+    http:
+      alias: ['cms-preprod.cyberriskalliance.com', 'api-preprod.cyberriskalliance.com']
+      additional_rules:
+        - path: 'graphql'
+          alias: [ 'cms-preprod.cyberriskalliance.com', 'api-preprod.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+        - path: 'wp-json'
+          alias: [ 'cms-preprod.cyberriskalliance.com', 'api-preprod.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+        # @see: https://www.nginx.com/blog/http2-module-nginx/#QandA
+        - path: 'wp-content/uploads/apps'
+          alias: [ 'cms-preprod.cyberriskalliance.com', 'api-preprod.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+        - path: 'feed'
+          alias: [ 'cms-preprod.cyberriskalliance.com', 'api-preprod.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+  qa1:
+    http:
+      alias: ['cms-qa1.cyberriskalliance.com', 'api-qa1.cyberriskalliance.com']
+      additional_rules:
+        - path: 'graphql'
+          alias: [ 'cms-qa1.cyberriskalliance.com', 'api-qa1.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+        - path: 'wp-json'
+          alias: [ 'cms-qa1.cyberriskalliance.com', 'api-qa1.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+        # @see: https://www.nginx.com/blog/http2-module-nginx/#QandA
+        - path: 'wp-content/uploads/apps'
+          alias: [ 'cms-qa1.cyberriskalliance.com', 'api-qa1.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+        - path: 'feed'
+          alias: [ 'cms-qa1.cyberriskalliance.com', 'api-qa1.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+  qa2:
+    http:
+      alias: ['cms-qa2.cyberriskalliance.com', 'api-qa2.cyberriskalliance.com']
+      additional_rules:
+        - path: 'graphql'
+          alias: [ 'cms-qa2.cyberriskalliance.com', 'api-qa2.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+        - path: 'wp-json'
+          alias: [ 'cms-qa2.cyberriskalliance.com', 'api-qa2.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+        # @see: https://www.nginx.com/blog/http2-module-nginx/#QandA
+        - path: 'wp-content/uploads/apps'
+          alias: [ 'cms-qa2.cyberriskalliance.com', 'api-qa2.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2
+        - path: 'feed'
+          alias: [ 'cms-qa2.cyberriskalliance.com', 'api-qa2.cyberriskalliance.com' ]
+          stickiness: false
+          version: 'http1'
+          healthcheck:
+            path: /_healthcheck
+            success_codes: '200'
+            interval: 10s
+            timeout: 5s
+            healthy_threshold: 3
+            unhealthy_threshold: 2

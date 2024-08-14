@@ -1,0 +1,17 @@
+{#
+Block Name: Collection.
+#}
+
+{# Debug info
+<pre>
+    {{ dump(fields) }}
+</pre>
+#}
+
+<div class="collection-block" id="collection-block-{{ block.id|e('html_attr') }}" data-id="{{ block.id|e('html_attr') }}">
+    {% for key, field in fields.layouts %}
+        <div class="collection-field" data-key="{{ key|e('html_attr') }}" data-data="{{ field|json_encode|e('html_attr') }}">
+            <img src="https://via.placeholder.com/1320x300.png?text={{ field.type|replace({"__": " - ", "_": " "})|title|url_encode }}" alt="{{ field.type }}" />
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,27 @@
+# The manifest for the "preprod" environment. Docs: https://aws.github.io/copilot-cli/docs/manifest/environment/
+name: preprod
+type: Environment
+
+network:
+  vpc:
+    id: vpc-02aa297e792bae47d
+    subnets:
+      public:
+        - id: subnet-070f4d05a8f09daf4
+        - id: subnet-075a96b9de7032c1a
+      private:
+        - id: subnet-0e39e309db680647d
+        - id: subnet-01b0032b0eb56d3ff
+
+http:
+  public:
+    certificates:
+      - arn:aws:acm:us-east-2:361493004146:certificate/205f9094-7c10-448b-b0a5-9befb373a93e
+    # @todo: Replace with `ELBSecurityPolicy-TLS13-1-3-2021-06` moving forward.
+    ssl_policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+  private:
+    ingress:
+      vpc: true
+
+observability:
+  container_insights: true

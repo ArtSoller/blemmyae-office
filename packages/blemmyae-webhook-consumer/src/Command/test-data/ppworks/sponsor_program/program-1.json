@@ -1,0 +1,10 @@
+{
+    "id": "program-1",
+    "name": "Condimentum lacinia quis vel eros3",
+    "sponsor": "sponsor-1",
+    "landing_page_url": "https://loremipsum.io/generator/?n=5&t=w",
+    "is_active": true,
+    "tier": "diamond",
+    "brand": "Security Weekly Podcast",
+    "brand_order": 1
+}

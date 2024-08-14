@@ -1,0 +1,79 @@
+{
+	"version": 2,
+	"settings": {
+    "layout": {
+      "contentSize": "840px"
+    },
+    "spacing": {
+      "blockGap": false
+    },
+    "color": {
+      "palette": [
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "#000000"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#ffffff"
+        },
+        {
+          "name": "Red",
+          "slug": "red",
+          "color": "#ee1c25"
+        },
+        {
+          "name": "Gold",
+          "slug": "gold",
+          "color": "#ba9a5b"
+        },
+        {
+          "name": "Gray (80%)",
+          "slug": "dark-gray",
+          "color": "#333333"
+        },
+        {
+          "name": "Gray (60%)",
+          "slug": "medium-gray-3",
+          "color": "#666666"
+        },
+        {
+          "name": "Gray (40%)",
+          "slug": "medium-gray-2",
+          "color": "#999999"
+        },
+        {
+          "name": "Gray (20%)",
+          "slug": "medium-gray-1",
+          "color": "#cccccc"
+        },
+        {
+          "name": "Gray (10%)",
+          "slug": "light-gray",
+          "color": "#e5e5e5"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "spacing": {
+      "blockGap": "2em",
+      "margin": {
+        "bottom": "28px"
+      },
+      "padding": {
+        "top": "8px",
+        "right": "8px",
+        "bottom": "8px",
+        "left": "8px"
+      }
+    },
+    "typography": {
+      "fontFamily": "inherit",
+      "fontSize": "18px",
+      "lineHeight": "1.8"
+    }
+  }
+}

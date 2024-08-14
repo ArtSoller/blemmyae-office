@@ -1,0 +1,20 @@
+{
+    "id": "host-1",
+    "firstname": "Fake Paul",
+    "lastname": "Asadoorian Test",
+    "title": "Founder",
+    "company": "Security Weekly",
+    "bio": "Paul Asadoorian is the founder of Security Weekly, which was acquired by CyberRisk Alliance. Paul spent time \u201cin the trenches\u201d implementing security programs for a lottery company and then a large university. Paul is offensive, having spent several years as a penetration tester. As Product Evangelist for Tenable Network Security, Paul built a library of materials on the topic of vulnerability management. When not hacking together embedded systems (or just plain hacking them) or coding silly projects in Python, Paul can be found researching his next set of headphones.",
+    "skype": "securityweekly",
+    "website": "https:\/\/securityweekly.com",
+    "twitter": "@securityweekly",
+    "discord": "0offset",
+    "linkedin": "https:\/\/www.linkedin.com\/in\/paulasadoorian\/",
+    "instagram": "@securityinsta",
+    "facebook": "https://www.facebook.com/groups/secweekly/",
+    "mastodon": "https://infosec.exchange/@paulasadoorian",
+    "bluesky": "https://bluesky.com/@paulasadoorian",
+    "threads": "@securitythreads",
+    "github": "https://github.com/cra-repo/blemmyae",
+    "headshot": "https:\/\/files.securityweekly.com\/images\/host\/Paul_Asadoorian-0.png"
+}

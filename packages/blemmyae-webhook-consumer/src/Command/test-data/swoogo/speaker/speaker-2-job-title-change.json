@@ -1,0 +1,23 @@
+{
+    "id": "speaker-2",
+    "swoogoId": 9900002,
+    "firstName": "Greg Leadership Board",
+    "middleName": "",
+    "lastName": "Davies Detroit",
+    "bio": "Reprehenderit ea quis consectetur consequat aute velit ea commodo in. Dolor voluptate adipisicing consectetur nostrud enim aliqua enim pariatur eiusmod. Officia do labore tempor et ad quis elit qui. Ad commodo quis cillum est ipsum nulla qui nulla. Enim eiusmod nostrud enim in elit sunt. Qui elit sunt incididunt duis nulla nisi sint veniam et officia tempor adipisicing.",
+    "company": "Channel 4",
+    "jobTitle": "Grand Taskmaster",
+    "phone": "1234567890",
+    "email": "greg2.davies2@example.com",
+    "twitterHandle": "@Taskmaster",
+    "headshotUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Greg_Davies_2011.jpg",
+    "directLink": "",
+    "birthDate": "",
+    "swoogoHash": "reprehenderit magna magna officia adipisicing",
+    "regionsCollection": [
+        {
+            "speakerType": "Leadership Board",
+            "eventRegion": "Detroit"
+        }
+    ]
+}

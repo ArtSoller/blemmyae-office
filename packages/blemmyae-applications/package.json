@@ -1,0 +1,28 @@
+{
+  "name": "blemmyae-applications",
+  "version": "1.0.0",
+  "description": "Blemmyae Applications contains logic for all applications-related functionality.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build:docs": "rm -rf hookdocs/ && jsdoc --configure hookdoc-conf.json --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cra-repo/blemmyae-applications.git"
+  },
+  "keywords": [
+    "plugin",
+	"blemmyae-applications"
+  ],
+  "author": "Alexander Kucherov",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cra-repo/blemmyae-applications/issues"
+  },
+  "homepage": "https://github.com/cra-repo/blemmyae-applications#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+	"wp-hookdoc": "^0.2.0"
+  }
+}

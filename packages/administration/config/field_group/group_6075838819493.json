@@ -1,0 +1,161 @@
+{
+    "key": "group_6075838819493",
+    "title": "People Taxonomy",
+    "fields": [
+        {
+            "key": "field_607583ae4f5f5",
+            "label": "Topic",
+            "name": "topic",
+            "aria-label": "",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "taxonomy": [
+                "topic"
+            ],
+            "allow_terms": [
+                "all_topic"
+            ],
+            "allow_level": "",
+            "field_type": "select",
+            "default_value": [],
+            "return_format": "object",
+            "ui": 1,
+            "allow_null": 0,
+            "placeholder": "",
+            "multiple": 1,
+            "ajax": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "populate_parental_terms": 0,
+            "choices": [],
+            "search_placeholder": "",
+            "layout": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0,
+            "min": "",
+            "max": ""
+        },
+        {
+            "key": "field_607583f54f5f6",
+            "label": "Type",
+            "name": "type",
+            "aria-label": "",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "First type is a main type.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "taxonomy": [
+                "people_type"
+            ],
+            "allow_terms": "",
+            "allow_level": "",
+            "field_type": "select",
+            "default_value": [],
+            "return_format": "object",
+            "ui": 1,
+            "allow_null": 0,
+            "placeholder": "",
+            "multiple": 1,
+            "ajax": 1,
+            "save_terms": 1,
+            "load_terms": 1,
+            "populate_parental_terms": 0,
+            "choices": [],
+            "search_placeholder": "",
+            "layout": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0,
+            "min": "",
+            "max": ""
+        },
+        {
+            "key": "field_62666ecf9fed5",
+            "label": "SC Award",
+            "name": "sc_award",
+            "aria-label": "",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "taxonomy": [
+                "sc_award"
+            ],
+            "allow_terms": "",
+            "allow_level": "",
+            "field_type": "select",
+            "default_value": [],
+            "return_format": "object",
+            "populate_parental_terms": 1,
+            "ui": 1,
+            "allow_null": 1,
+            "placeholder": "",
+            "multiple": 1,
+            "ajax": 0,
+            "save_terms": 1,
+            "load_terms": 0,
+            "choices": [],
+            "search_placeholder": "",
+            "layout": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0,
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "people"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "peopleTaxonomy",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "Person"
+    ],
+    "modified": 1713451840
+}

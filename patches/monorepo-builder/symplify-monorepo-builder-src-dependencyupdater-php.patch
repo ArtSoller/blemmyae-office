@@ -1,0 +1,19 @@
+Index: src/DependencyUpdater.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/DependencyUpdater.php b/src/DependencyUpdater.php
+--- a/src/DependencyUpdater.php	(revision 0a069637352968ed8970b783c4459299efac87e2)
++++ b/src/DependencyUpdater.php	(date 1674116921832)
+@@ -84,6 +84,10 @@
+     }
+     private function shouldSkip(string $vendor, string $targetVersion, string $packageName, string $packageVersion) : bool
+     {
++        global $mbPackagesToSkip;
++        if (\in_array($packageName, $mbPackagesToSkip ?? [])) {
++            return \true;
++        }
+         if (\strncmp($packageName, $vendor . '/', \strlen($vendor . '/')) !== 0) {
+             return \true;
+         }

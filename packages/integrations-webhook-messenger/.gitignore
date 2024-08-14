@@ -1,0 +1,7 @@
+# Dependencies
+vendor/
+
+# OS and IDEs
+.idea
+.DS_Store
+*~

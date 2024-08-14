@@ -1,0 +1,745 @@
+{
+    "key": "group_606edc63ddfeb",
+    "title": "Newsletter Advanced",
+    "fields": [
+        {
+            "key": "field_6156a99a2f396",
+            "label": "Subject",
+            "name": "subject",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Subject to set for the newsletter email in Marketo.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6156aa142f397",
+            "label": "Schedule Date",
+            "name": "schedule_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "This field is going to be used to only set the names of the associated folder and program in Marketo.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "display_format": "F j, Y",
+            "return_format": "Y-m-d",
+            "first_day": 1,
+            "placeholder": "",
+            "min_date": "",
+            "max_date": "",
+            "no_weekends": 0
+        },
+        {
+            "key": "field_649c599b3a04d",
+            "label": "Newsletter Wysiwyg",
+            "name": "newsletter_wysiwyg",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "acfe_wysiwyg_height": 300,
+            "acfe_wysiwyg_max_height": "",
+            "acfe_wysiwyg_valid_elements": "",
+            "acfe_wysiwyg_custom_style": "",
+            "acfe_wysiwyg_disable_wp_style": 0,
+            "acfe_wysiwyg_autoresize": 0,
+            "acfe_wysiwyg_disable_resize": 0,
+            "acfe_wysiwyg_remove_path": 0,
+            "acfe_wysiwyg_menubar": 0,
+            "acfe_wysiwyg_transparent": 0,
+            "acfe_wysiwyg_merge_toolbar": 0,
+            "acfe_wysiwyg_custom_toolbar": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
+            "acfe_wysiwyg_auto_init": 0,
+            "acfe_wysiwyg_min_height": 300,
+            "acfe_wysiwyg_toolbar_buttons": []
+        },
+        {
+            "key": "field_606edc8077a94",
+            "label": "Editorials & Podcasts",
+            "name": "item",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "acfe_repeater_stylised_button": 0,
+            "collapsed": "",
+            "min": 1,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add Editorial",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_606edda277a9a",
+                    "label": "Post",
+                    "name": "post",
+                    "aria-label": "",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "post_type": [
+                        "landing",
+                        "whitepaper",
+                        "editorial",
+                        "ppworks_episode",
+                        "ppworks_segment"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "save_custom": 0,
+                    "save_post_status": "publish",
+                    "acfe_bidirectional": {
+                        "acfe_bidirectional_enabled": "0"
+                    },
+                    "ui": 1,
+                    "save_post_type": "",
+                    "parent_repeater": "field_606edc8077a94",
+                    "acfe_add_post": 0,
+                    "acfe_edit_post": 0,
+                    "min": "",
+                    "max": "",
+                    "bidirectional_target": []
+                },
+                {
+                    "key": "field_606edcbc77a95",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_606edc8077a94"
+                },
+                {
+                    "key": "field_606edcf177a96",
+                    "label": "Date",
+                    "name": "date",
+                    "aria-label": "",
+                    "type": "date_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "display_format": "d\/m\/Y",
+                    "return_format": "d\/m\/Y",
+                    "first_day": 1,
+                    "parent_repeater": "field_606edc8077a94",
+                    "placeholder": "",
+                    "min_date": "",
+                    "max_date": "",
+                    "no_weekends": 0
+                },
+                {
+                    "key": "field_606edd2577a97",
+                    "label": "Author",
+                    "name": "author",
+                    "aria-label": "",
+                    "type": "user",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "role": "",
+                    "allow_null": 1,
+                    "multiple": 1,
+                    "return_format": "array",
+                    "parent_repeater": "field_606edc8077a94",
+                    "min": "",
+                    "max": "",
+                    "bidirectional_target": []
+                },
+                {
+                    "key": "field_606edd5377a98",
+                    "label": "Deck",
+                    "name": "deck",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
+                    "acfe_textarea_code": 0,
+                    "parent_repeater": "field_606edc8077a94"
+                },
+                {
+                    "key": "field_606edd8d77a99",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_606edc8077a94"
+                }
+            ]
+        },
+        {
+            "key": "field_60f8042f020bc",
+            "label": "Briefs",
+            "name": "briefs",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "acfe_repeater_stylised_button": 0,
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add Brief",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_60f8042f020bd",
+                    "label": "Post",
+                    "name": "post",
+                    "aria-label": "",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "post_type": [
+                        "editorial"
+                    ],
+                    "taxonomy": [
+                        "editorial_type:brief"
+                    ],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "save_custom": 0,
+                    "save_post_status": "publish",
+                    "acfe_bidirectional": {
+                        "acfe_bidirectional_enabled": "0"
+                    },
+                    "ui": 1,
+                    "save_post_type": "",
+                    "parent_repeater": "field_60f8042f020bc",
+                    "acfe_add_post": 0,
+                    "acfe_edit_post": 0,
+                    "min": "",
+                    "max": "",
+                    "bidirectional_target": []
+                },
+                {
+                    "key": "field_60f8042f020be",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_60f8042f020bc"
+                },
+                {
+                    "key": "field_60f80443020c3",
+                    "label": "Source",
+                    "name": "source",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_60f8042f020bc"
+                }
+            ]
+        },
+        {
+            "key": "field_642a65e1616cb",
+            "label": "Additional Content",
+            "name": "additional_content",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "acfe_repeater_stylised_button": 0,
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_642a6635616cc",
+                    "label": "Section TItle",
+                    "name": "section_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Section title, which need to be added before content",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "required_message": "You need to use {label} for section",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_642a65e1616cb"
+                },
+                {
+                    "key": "field_642296bc4da4d",
+                    "label": "Posts",
+                    "name": "posts",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Place posts, which you want to see in the section <br> <b>Supported types:<\/b> Editorials, PPWorks Segments, Events. <br> <b>NOTICE<\/b> This field will appear only on Identity newsletter type.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "acfe_repeater_stylised_button": 0,
+                    "layout": "row",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Content",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_642a65e1616cb",
+                    "sub_fields": [
+                        {
+                            "key": "field_642296bc4da4e",
+                            "label": "Post",
+                            "name": "post",
+                            "aria-label": "",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "post_type": [
+                                "landing",
+                                "whitepaper",
+                                "editorial",
+                                "learning",
+                                "ppworks_segment"
+                            ],
+                            "taxonomy": "",
+                            "return_format": "object",
+                            "multiple": 0,
+                            "allow_null": 1,
+                            "ui": 1,
+                            "parent_repeater": "field_642296bc4da4d",
+                            "save_custom": 0,
+                            "save_post_type": "",
+                            "save_post_status": "",
+                            "acfe_add_post": 0,
+                            "acfe_edit_post": 0,
+                            "min": "",
+                            "max": "",
+                            "bidirectional_target": []
+                        },
+                        {
+                            "key": "field_6423f4dc444da",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_642296bc4da4d"
+                        },
+                        {
+                            "key": "field_6423f4ea444db",
+                            "label": "Source",
+                            "name": "source",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_642296bc4da4d"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_649c5af63a04f",
+            "label": "List of Blocks",
+            "name": "list_of_blocks",
+            "aria-label": "",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "acfe_flexible_advanced": 0,
+            "layouts": {
+                "layout_649c626d4ac56": {
+                    "key": "layout_649c626d4ac56",
+                    "name": "posts_links_by_topic",
+                    "label": "Post's links by topic",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_649c5e903a051",
+                            "label": "Post's links by topic",
+                            "name": "posts_links_by_topic",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "acfe_repeater_stylised_button": 0,
+                            "layout": "table",
+                            "pagination": 0,
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Row",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_649c5f073a052",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_graphql": 1,
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_649c5e903a051"
+                                },
+                                {
+                                    "key": "field_649c5f523a053",
+                                    "label": "Post's links",
+                                    "name": "posts_links",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_graphql": 1,
+                                    "acfe_repeater_stylised_button": 0,
+                                    "layout": "table",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_649c5e903a051",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_649c5fa43a054",
+                                            "label": "Post",
+                                            "name": "post",
+                                            "aria-label": "",
+                                            "type": "post_object",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "show_in_graphql": 1,
+                                            "post_type": [
+                                                "editorial"
+                                            ],
+                                            "taxonomy": "",
+                                            "return_format": "object",
+                                            "multiple": 0,
+                                            "save_custom": 0,
+                                            "save_post_status": "publish",
+                                            "acfe_add_post": 0,
+                                            "acfe_edit_post": 0,
+                                            "acfe_bidirectional": {
+                                                "acfe_bidirectional_enabled": "0"
+                                            },
+                                            "max": "",
+                                            "allow_null": 0,
+                                            "ui": 1,
+                                            "save_post_type": "",
+                                            "min": "",
+                                            "parent_repeater": "field_649c5f523a053",
+                                            "bidirectional_target": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium",
+                    "acfe_layout_locations": [],
+                    "acfe_flexible_modal_edit_size": false,
+                    "acfe_flexible_category": false,
+                    "acfe_layout_col": "auto",
+                    "acfe_layout_allowed_col": false
+                }
+            },
+            "min": "",
+            "max": "",
+            "button_label": "Add Row",
+            "acfe_flexible_stylised_button": false,
+            "acfe_flexible_hide_empty_message": false,
+            "acfe_flexible_empty_message": "",
+            "acfe_flexible_layouts_templates": false,
+            "acfe_flexible_layouts_previews": false,
+            "acfe_flexible_layouts_placeholder": false,
+            "acfe_flexible_layouts_thumbnails": false,
+            "acfe_flexible_layouts_settings": false,
+            "acfe_flexible_layouts_locations": false,
+            "acfe_flexible_async": [],
+            "acfe_flexible_add_actions": [],
+            "acfe_flexible_remove_button": [],
+            "acfe_flexible_layouts_state": false,
+            "acfe_flexible_modal_edit": {
+                "acfe_flexible_modal_edit_enabled": false,
+                "acfe_flexible_modal_edit_size": "large"
+            },
+            "acfe_flexible_modal": {
+                "acfe_flexible_modal_enabled": false,
+                "acfe_flexible_modal_title": false,
+                "acfe_flexible_modal_size": "full",
+                "acfe_flexible_modal_col": "4",
+                "acfe_flexible_modal_categories": false
+            },
+            "acfe_flexible_grid": {
+                "acfe_flexible_grid_enabled": false,
+                "acfe_flexible_grid_align": "center",
+                "acfe_flexible_grid_valign": "stretch",
+                "acfe_flexible_grid_wrap": false
+            },
+            "acfe_flexible_grid_container": false
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "newsletter"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Collection for Newsletter post type",
+    "show_in_rest": 0,
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_display_title": "",
+    "acfe_meta": "",
+    "acfe_note": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "newsletterCollection",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "Newsletter"
+    ],
+    "modified": 1714385398
+}

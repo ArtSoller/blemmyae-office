@@ -1,0 +1,38 @@
+{#
+	C1 - Card.
+	@todo: Update description.
+#}
+{% macro c1(item) %}
+	<div class="card">
+		{%
+			set card = {
+				'title': item.title ?: item.post.title,
+				'author': User(item.author ?: item.post.author),
+				'date': (item.date ?: item.post.post_date)|date("m/d/Y"),
+				'image': Image(item.featured_image ?: item.post.thumbnail),
+				'deck': item.deck ?: item.post.post_excerpt,
+				'link': item.link ?: item.post.slug
+			}
+		%}
+		{% set subtitle_temp = (card.author.name and card.date) ? (card.author.name ~ ' | ' ~ card.date) : '' %}
+		{% set subtitle = subtitle_temp ?: (card.author.name ?: card.date) %}
+
+		{% if card.image %}
+			<img class="card-img-top" src="{{ card.image.src }}" alt="{{ card.image.alt }}">
+		{% endif %}
+		<div class="card-body">
+			{% if card.title %}
+				<h5 class="card-title">{{ card.title }}</h5>
+			{% endif %}
+			{% if subtitle %}
+				<h6 class="card-subtitle mb-2 text-muted">{{ subtitle }}</h6>
+			{% endif %}
+			{% if card.deck %}
+				<p class="card-text">{{ card.deck }}</p>
+			{% endif %}
+			{% if card.link %}
+				<a href="{{ card.link }}" class="stretched-link">More</a>
+			{% endif %}
+		</div>
+	</div>
+{% endmacro %}

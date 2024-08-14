@@ -1,0 +1,28 @@
+{
+  "name": "blemmyae-ads",
+  "version": "1.0.0",
+  "description": "Blemmyae Ads contains all custom functionality related to ads.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build:docs": "rm -rf hookdocs/ && jsdoc --configure hookdoc-conf.json --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cra-repo/blemmyae-ads.git"
+  },
+  "keywords": [
+    "plugin",
+	"blemmyae-ads"
+  ],
+  "author": "Alexander Kucherov",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cra-repo/blemmyae-ads/issues"
+  },
+  "homepage": "https://github.com/cra-repo/blemmyae-ads#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+	"wp-hookdoc": "^0.2.0"
+  }
+}

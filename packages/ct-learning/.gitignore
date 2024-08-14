@@ -1,0 +1,17 @@
+/logs/
+/hookdocs/
+/node_modules/
+/vendor/
+/composer.lock
+/.phpcs.xml
+/phpcs.xml
+/phpunit.xml
+/.phpunit.result.cache
+
+# Dev stuff
+.idea/
+
+# Mac OS - General
+.DS_Store
+.AppleDouble
+.LSOverride

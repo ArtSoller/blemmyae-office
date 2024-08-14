@@ -1,0 +1,152 @@
+Parameters:
+  App:
+    Type: String
+    Description: Your application's name.
+  Env:
+    Type: String
+    Description: The environment name your service, job, or workflow is being deployed to.
+  # Customize your Aurora Serverless cluster by setting the default value of the following parameters.
+  wpDBName:
+    Type: String
+    Description: The name of the initial database to be created in the Aurora Serverless v2 cluster.
+    Default: blemmyae
+    # Cannot have special characters
+    # Naming constraints: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints
+  VPCID:
+    Type: String
+    Description: The ID of the VPC in which to create the Aurora Serverless v2 cluster.
+    # Live: vpc-02aa297e792bae47d
+    # Test: vpc-04f7603a382c89ea9
+    Default: "vpc-02aa297e792bae47d"
+  PrivateSubnets:
+    Type: String
+    Description: The IDs of the private subnets in which to create the Aurora Serverless v2 cluster.
+    # Live: subnet-0e39e309db680647d,subnet-01b0032b0eb56d3ff
+    # Test: subnet-0ad4504e606ca4957,subnet-0ed0805cd74113822
+    Default: "subnet-0e39e309db680647d,subnet-01b0032b0eb56d3ff"
+
+Mappings:
+  wpEnvScalingConfigurationMap:
+    prod:
+      "DBMinCapacity": 2 # AllowedValues: from 0.5 through 128
+      "DBMaxCapacity": 32 # AllowedValues: from 0.5 through 128
+    All:
+      "DBMinCapacity": 1 # AllowedValues: from 0.5 through 128
+      "DBMaxCapacity": 16 # AllowedValues: from 0.5 through 128
+
+Resources:
+  wpDBSubnetGroup:
+    Type: 'AWS::RDS::DBSubnetGroup'
+    Properties:
+      DBSubnetGroupDescription: Group of private subnets for Aurora Serverless v2 cluster.
+      SubnetIds:
+        !Split [',', !Ref PrivateSubnets]
+  
+  wpWorkloadSecurityGroup:
+    Metadata:
+      'aws:copilot:description': 'A security group for one or more workloads to access the Aurora Serverless v2 cluster wp'
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: !Sub 'The Security Group to access Aurora Serverless v2 cluster wp.'
+      VpcId: !Ref VPCID
+      Tags:
+        - Key: Name
+          Value: !Sub 'copilot-${App}-${Env}-Aurora'
+
+  wpDBClusterSecurityGroup:
+    Metadata:
+      'aws:copilot:description': 'A security group for your Aurora Serverless v2 cluster wp'
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: The Security Group for the Aurora Serverless v2 cluster.
+      VpcId: !Ref VPCID
+      Tags:
+        - Key: Name
+          Value: !Sub 'copilot-${App}-${Env}-Aurora'
+  
+  wpDBClusterSecurityGroupIngressFromWorkload:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      Description: Ingress from one or more workloads in the environment.
+      GroupId: !Ref wpDBClusterSecurityGroup
+      IpProtocol: tcp
+      ToPort: 3306
+      FromPort: 3306
+      SourceSecurityGroupId: !Ref wpWorkloadSecurityGroup
+  
+  wpAuroraSecret:
+    Metadata:
+      'aws:copilot:description': 'A Secrets Manager secret to store your DB credentials'
+    Type: AWS::SecretsManager::Secret
+    Properties:
+      Description: !Sub Aurora main user secret for ${AWS::StackName}
+      GenerateSecretString:
+        SecretStringTemplate: '{"username": "admin"}'
+        GenerateStringKey: "password"
+        ExcludePunctuation: true
+        IncludeSpace: false
+        PasswordLength: 16
+  wpDBClusterParameterGroup:
+    Metadata:
+      'aws:copilot:description': 'A DB parameter group for engine configuration values'
+    Type: 'AWS::RDS::DBClusterParameterGroup'
+    Properties:
+      Description: !Ref 'AWS::StackName'
+      Family: 'aurora-mysql8.0'
+      Parameters:
+        character_set_client: 'utf8'
+  
+  wpDBCluster:
+    Metadata:
+      'aws:copilot:description': 'The wp Aurora Serverless v2 database cluster'
+    Type: 'AWS::RDS::DBCluster'
+    Properties:
+      MasterUsername:
+        !Join ["",  ['{{resolve:secretsmanager:', !Ref wpAuroraSecret, ":SecretString:username}}"]]
+      MasterUserPassword:
+        !Join ["",  ['{{resolve:secretsmanager:', !Ref wpAuroraSecret, ":SecretString:password}}"]]
+      DatabaseName: !Ref wpDBName
+      Engine: 'aurora-mysql'
+      EngineVersion: '8.0.mysql_aurora.3.03.0'
+      DBClusterParameterGroupName: !Ref wpDBClusterParameterGroup
+      DBSubnetGroupName: !Ref wpDBSubnetGroup
+      Port: 3306
+      VpcSecurityGroupIds:
+        - !Ref wpDBClusterSecurityGroup
+      ServerlessV2ScalingConfiguration:
+        # Replace "All" below with "!Ref Env" to set different autoscaling limits per environment.
+        MinCapacity: !FindInMap [wpEnvScalingConfigurationMap, All, DBMinCapacity]
+        MaxCapacity: !FindInMap [wpEnvScalingConfigurationMap, All, DBMaxCapacity]
+  
+  wpDBWriterInstance:
+    Metadata:
+      'aws:copilot:description': 'The wp Aurora Serverless v2 writer instance'
+    Type: 'AWS::RDS::DBInstance'
+    Properties:
+      DBClusterIdentifier: !Ref wpDBCluster
+      DBInstanceClass: db.serverless
+      Engine: 'aurora-mysql'
+      PromotionTier: 1
+      AvailabilityZone: !Select
+        - 0
+        - !GetAZs
+          Ref: AWS::Region
+
+  wpSecretAuroraClusterAttachment:
+    Type: AWS::SecretsManager::SecretTargetAttachment
+    Properties:
+      SecretId: !Ref wpAuroraSecret
+      TargetId: !Ref wpDBCluster
+      TargetType: AWS::RDS::DBCluster
+
+Outputs:
+  wpSecret:
+    Description: "The JSON secret that holds the database username and password. Fields are 'host', 'port', 'dbname', 'username', 'password', 'dbClusterIdentifier' and 'engine'"
+    Value: !Ref wpAuroraSecret
+    Export:
+      Name: !Sub ${App}-${Env}-wpAuroraSecret
+  wpSecurityGroup:
+    Description: "The security group to attach to the workload."
+    Value: !Ref wpWorkloadSecurityGroup
+    Export:
+      Name: !Sub ${App}-${Env}-wpSecurityGroup

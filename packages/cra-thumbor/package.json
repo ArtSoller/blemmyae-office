@@ -1,0 +1,30 @@
+{
+    "name": "cra-thumbor",
+    "version": "1.0.0",
+    "description": "CRA Thumbor is a ...",
+    "main": "index.js",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cra-repo/cra-thumbor.git"
+    },
+    "keywords": [
+        "plugin",
+        "cra-thumbor"
+    ],
+    "author": "Alexander Kucherov",
+    "contributors": [
+        {
+            "name": "Eugene Yakovenko",
+            "url": "https://github.com/yakoveka"
+        }
+    ],
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/cra-repo/cra-thumbor/issues"
+    },
+    "homepage": "https://github.com/cra-repo/cra-thumbor#readme",
+    "devDependencies": {
+        "jsdoc": "^3.6.6"
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "blemmyae-deployment",
+  "version": "1.1.6",
+  "description": "Deployment using Release Instructions",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build:docs": "rm -rf hookdocs/ && jsdoc -c hookdoc-conf.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cra-repo/blemmyae-deployment.git"
+  },
+  "keywords": [
+    "plugin",
+	"blemmyae-deployment"
+  ],
+  "author": "Alexander Kucherov",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cra-repo/blemmyae-deployment/issues"
+  },
+  "homepage": "https://github.com/cra-repo/blemmyae-deployment#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+	"wp-hookdoc": "^0.2.0"
+  }
+}

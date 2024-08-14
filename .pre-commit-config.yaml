@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/digitalpulp/pre-commit-php.git
+    rev: 1.4.0
+    hooks:
+      - id: php-cs
+        args: [ "--file-list=phpcs/scopes/blem.txt", "--standard=phpcs/phpcs.xml", "-v", "-p" ]

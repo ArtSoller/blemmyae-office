@@ -1,0 +1,40 @@
+Subject: [PATCH] remove preview button
+---
+Index: wp-admin/includes/meta-boxes.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/wp-admin/includes/meta-boxes.php b/wp-admin/includes/meta-boxes.php
+--- a/wp-admin/includes/meta-boxes.php	(revision 5ed6d4a0469ff42d7ec4a1f72558be8f897a6e18)
++++ b/wp-admin/includes/meta-boxes.php	(date 1695826950473)
+@@ -62,29 +62,6 @@
+ 		</div>
+
+ 		<?php
+-		if ( is_post_type_viewable( $post_type_object ) ) :
+-			?>
+-			<div id="preview-action">
+-				<?php
+-				$preview_link = esc_url( get_preview_post_link( $post ) );
+-				if ( 'publish' === $post->post_status ) {
+-					$preview_button_text = __( 'Preview Changes' );
+-				} else {
+-					$preview_button_text = __( 'Preview' );
+-				}
+-
+-				$preview_button = sprintf(
+-					'%1$s<span class="screen-reader-text"> %2$s</span>',
+-					$preview_button_text,
+-					/* translators: Hidden accessibility text. */
+-					__( '(opens in a new tab)' )
+-				);
+-				?>
+-				<a class="preview button" href="<?php echo $preview_link; ?>" target="wp-preview-<?php echo $post_id; ?>" id="post-preview"><?php echo $preview_button; ?></a>
+-				<input type="hidden" name="wp-preview" id="wp-preview" value="" />
+-			</div>
+-			<?php
+-		endif;
+
+ 		/**
+ 		 * Fires after the Save Draft (or Save as Pending) and Preview (or Preview Changes) buttons

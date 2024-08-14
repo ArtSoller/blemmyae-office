@@ -1,0 +1,15 @@
+# Dependencies
+vendor/*
+node_modules/*
+
+# Dev stuff
+.idea/
+
+# Mac OS - General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+## Uncomment line below if you prefer to
+## keep compiled files out of version control
+# dist/

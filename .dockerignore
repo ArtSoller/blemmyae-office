@@ -1,0 +1,11 @@
+node_modules
+docs/
+build-docker/
+.editorconfig
+README.md
+.github
+.git
+.idea
+.gitkeep
+phpcs/
+.pre-commit-config.yaml

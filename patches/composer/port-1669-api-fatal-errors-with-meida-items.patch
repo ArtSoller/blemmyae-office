@@ -1,0 +1,24 @@
+Subject: [PATCH] feat(connection/blocks): check that attachement exists in system in CoreImageBlock
+---
+Index: src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php b/src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php
+--- a/src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php	(revision 0a069637352968ed8970b783c4459299efac87e2)
++++ b/src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php	(date 1678781059173)
+@@ -19,6 +19,13 @@
+ 					if ( is_wp_error( $queried_attachment ) ) {
+ 						return false;
+ 					}
++
++					// Return null, if attachment has been missed for some reason.
++					if (empty($queried_attachment)) {
++						error_log('Attachment with id: ' . $source->attributes['id'] . ' can not be found');
++						return null;
++					}
++
+ 					$graphql_post = new Post( $queried_attachment );
+ 					$resolver     = new PostObjectConnectionResolver(
+ 						$graphql_post,

@@ -1,0 +1,147 @@
+name: blemmyae
+
+services:
+  mysql:
+    image: docker.io/bitnami/mysql:8.0
+    networks:
+      - blemmyae
+    volumes:
+      - 'mysql_data:/bitnami/mysql'
+    environment:
+      #- ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_USER=bn_wordpress
+      - MYSQL_DATABASE=blemmyae
+      - MYSQL_ROOT_PASSWORD=bitnami
+      - MYSQL_PASSWORD=bitnami
+  phpmyadmin:
+    image: docker.io/bitnami/phpmyadmin:latest
+    ports:
+      - 8282:8080
+      - 8443:8443
+    networks:
+      - blemmyae
+    depends_on:
+      - mysql
+    volumes:
+      - 'phpmyadmin_data:/bitnami/phpmyadmin'
+  cms:
+    #image: 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/cms:local
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      tags:
+        - 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/cms:local
+        - 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/api:local
+    ports:
+      - 8080:8080
+    volumes:
+      - 'wordpress_data:/bitnami/wordpress'
+    depends_on:
+      - mysql
+    networks:
+      - blemmyae
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      #- ALLOW_EMPTY_PASSWORD=yes
+      - WORDPRESS_DATABASE_HOST=mysql
+      - WORDPRESS_DATABASE_PORT_NUMBER=3306
+      - WORDPRESS_DATABASE_USER=bn_wordpress
+      - WORDPRESS_DATABASE_NAME=blemmyae
+      - WORDPRESS_DATABASE_PASSWORD=bitnami
+      - "WP_SECRET={\"password\": \"bitnami\",\"dbname\": \"blemmyae\",\"engine\": \"mysql\",\"port\": 3306,\"host\": \"mysql\",\"username\": \"bn_wordpress\",\"s3AwsAccessKeyId\": \"UPDATE_ME\",\"s3AwsSecretAccess\": \"UPDATE_ME\",\"s3AwsDefaultRegion\": \"us-east-2\"}"
+      - WORDPRESS_SKIP_BOOTSTRAP=yes
+      - WORDPRESS_PLUGINS=none
+      - WORDPRESS_DATA_TO_PERSIST=wp-config.php wp-content/uploads
+      - WORDPRESS_EXTRA_CLI_ARGS=--allow-root
+  api:
+    #image: 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/api:local
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      tags:
+        - 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/cms:local
+        - 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/api:local
+    ports:
+      - 8181:8080
+    volumes:
+      - 'wordpress_data:/bitnami/wordpress'
+    depends_on:
+      - mysql
+    networks:
+      - blemmyae
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      #- ALLOW_EMPTY_PASSWORD=yes
+      - WORDPRESS_DATABASE_HOST=mysql
+      - WORDPRESS_DATABASE_PORT_NUMBER=3306
+      - WORDPRESS_DATABASE_USER=bn_wordpress
+      - WORDPRESS_DATABASE_NAME=blemmyae
+      - WORDPRESS_DATABASE_PASSWORD=bitnami
+      - "WP_SECRET={\"password\": \"bitnami\",\"dbname\": \"blemmyae\",\"engine\": \"mysql\",\"port\": 3306,\"host\": \"mysql\",\"username\": \"bn_wordpress\",\"s3AwsAccessKeyId\": \"UPDATE_ME\",\"s3AwsSecretAccess\": \"UPDATE_ME\",\"s3AwsDefaultRegion\": \"us-east-2\"}"
+      - WORDPRESS_SKIP_BOOTSTRAP=yes
+      - WORDPRESS_PLUGINS=none
+      - WORDPRESS_DATA_TO_PERSIST=wp-config.php wp-content/uploads
+      - WORDPRESS_EXTRA_CLI_ARGS=--allow-root
+  # Reverse proxy.
+  nginx:
+    #image: 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/proxy:local
+    build:
+      platforms:
+        - "linux/amd64"
+      context: ../docker/nginx
+      dockerfile: Dockerfile
+      args:
+        ENVIRONMENT: "local"
+        #ENVIRONMENT: "aws"
+    ports:
+      - 80:80/tcp
+      - 443:443/tcp
+      # @fixme: well neither copilot alb or nlb support udp ports; no quic protocol for us so far
+      #- 80:80/udp
+      #- 443:443/udp
+    restart: unless-stopped
+    depends_on:
+      - cms
+      - api
+      - varnish
+    networks:
+      - blemmyae
+    links:
+      - cms:blemmyae-cms-1
+      - api:blemmyae-api-1
+      - varnish:blemmyae-varnish-1
+  varnish:
+    build:
+      context: ../docker/varnish
+      dockerfile: Dockerfile
+    ports:
+      - 8383:80
+    restart: unless-stopped
+    depends_on:
+      - api
+    networks:
+      - blemmyae
+      - blemmyae-external
+    links:
+      - api:blemmyae-api-1
+    environment:
+      VARNISH_SIZE: "1500MB"
+      # @todo: Add support for environments.
+      #VARNISH_BACKEND_HOSTNAME: "api"
+      #VARNISH_BACKEND_PORT: "8080"
+
+volumes:
+  mysql_data:
+    driver: local
+  wordpress_data:
+    driver: local
+  phpmyadmin_data:
+    driver: local
+
+networks:
+  blemmyae:
+    driver: bridge
+  blemmyae-external:
+    name: blemmyae-external
+    driver: bridge

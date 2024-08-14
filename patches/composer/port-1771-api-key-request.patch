@@ -1,0 +1,60 @@
+Index: public/class-jwt-auth-public.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/class-jwt-auth-public.php b/public/class-jwt-auth-public.php
+--- a/public/class-jwt-auth-public.php
++++ b/public/class-jwt-auth-public.php	(date 1684302160276)
+@@ -261,6 +261,51 @@
+ 	 * @return WP_Error | Object | Array
+ 	 */
+ 	public function validate_token( WP_REST_Request $request, $custom_token = false ) {
++		/*
++         * Skip validate token process for some whitelisted IPs.
++         *
++         * These settings is based on JWT_SKIP_TOKEN_VALIDATION_SETTINGS variable, if you want to use this feature, then
++         * you need to define variable in wp-config.php first. You need to specify url patterns and list of IPs, that
++         * will skip JWT token validation.
++         *
++         * Example of the JWT_SKIP_TOKEN_VALIDATION_SETTINGS value:
++         *  [
++         *      [
++         *          'uri_pattern' => '/^\/wp-json\/hum\/v1([\/\w\-]+)/',
++         *          'ips' => ['5.128.82.18']
++         *      ],
++         * ]
++         *
++         *
++         */
++		$skip_token_validation_settings = defined( 'JWT_SKIP_TOKEN_VALIDATION_SETTINGS' ) ? JWT_SKIP_TOKEN_VALIDATION_SETTINGS : [];
++
++		foreach ( $skip_token_validation_settings as $skip_token_validation_setting ) {
++			if ( empty( $skip_token_validation_setting['uri_pattern'] ) || empty( $skip_token_validation_setting['ips'] ) ) {
++				continue;
++			}
++
++			if ( preg_match( $skip_token_validation_setting['uri_pattern'], $_SERVER['REQUEST_URI'] ) ) {
++				// Forward ip is 1st ip from HTTP_X_FORWARDED_FOR list.
++				if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
++					$forwarded_for_array =  explode(', ', $_SERVER['HTTP_X_FORWARDED_FOR']);
++					$ip = array_shift($forwarded_for_array);
++				} else {
++					$ip = 	$_SERVER['REMOTE_ADDR'];
++				}
++
++				// If we use nginx as proxy => it would be better to use HTTP_X_FORWARDED_FOR instead of SERVER_ADDR.
++				if ( is_array( $skip_token_validation_setting['ips'] ) && in_array( $ip, $skip_token_validation_setting['ips'] ) ) {
++					return [
++						'code' => 'jwt_auth_skip_token_validation',
++						'data' => [
++							'status' => 200,
++						],
++					];
++				}
++			}
++		}
++
+ 		/*
+ 		 * Looking for the Authorization header
+ 		 *

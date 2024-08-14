@@ -1,0 +1,57 @@
+# The manifest for the "cms" service. Docs: https://aws.github.io/copilot-cli/docs/manifest/lb-web-service/
+name: cms
+type: Backend Service
+
+deployment:
+  rolling: default
+
+http:
+  path: '/'
+  stickiness: false
+  healthcheck:
+    port: 8080
+    path: /wp-content/themes/headless/_healthcheck.php
+    success_codes: '200-399'
+    interval: 10s
+    timeout: 5s
+    healthy_threshold: 3
+    unhealthy_threshold: 2
+    grace_period: 60s
+
+image:
+  location: 361493004146.dkr.ecr.us-east-2.amazonaws.com/cra-portal-backend/cms:${IMAGE_TAG}
+  port: 8080
+
+cpu: 1024
+memory: 2048
+count:
+  range: 1-3
+  cpu_percentage: 65
+  memory_percentage: 65
+exec: true
+network:
+  connect: true
+  vpc:
+    security_groups:
+      - from_cfn: ${COPILOT_APPLICATION_NAME}-${COPILOT_ENVIRONMENT_NAME}-wpSecurityGroup
+    # @todo: Move under private - recreate service.
+    #  placement: private
+
+storage:
+  volumes:
+    wpUserData:
+      path: /bitnami/wordpress
+      read_only: false
+      efs: true
+
+variables:
+  MYSQL_CLIENT_FLAVOR: mysql
+  PHP_MEMORY_LIMIT: 1536m
+  WORDPRESS_SKIP_BOOTSTRAP: yes
+  WORDPRESS_PLUGINS: none
+  WORDPRESS_DATA_TO_PERSIST: wp-config.php wp-content/uploads
+  WORDPRESS_EXTRA_CLI_ARGS: --allow-root
+
+secrets:
+  WP_SECRET:
+    from_cfn: ${COPILOT_APPLICATION_NAME}-${COPILOT_ENVIRONMENT_NAME}-wpAuroraSecret

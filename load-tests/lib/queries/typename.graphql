@@ -1,0 +1,3 @@
+query typename {
+    __typename
+}

@@ -1,0 +1,26 @@
+{
+    "id": "session-1",
+    "eventId": "event-1",
+    "eventName": "2026 CyberRisk Leadership Exchange: Fake City",
+    "name": "nulla culpa mollit culpa dolore ipsum laborum nulla aliquip nulla",
+    "description": "<p>Duis laborum velit eiusmod ipsum do aliqua Lorem sint tempor Lorem et id sit. Dolor qui dolor ex dolore in dolor irure voluptate mollit aute mollit id ut est enim. Fugiat officia consequat velit Lorem. Magna ea adipisicing id mollit duis cillum magna Lorem veniam laboris quis. Elit in aliquip irure. Nostrud labore officia amet consequat sint minim ex consectetur consequat dolore velit consequat aliqua. Magna id mollit sint.</p>",
+    "startDateTime": {
+        "date": "2026-04-17 13:30:00.000000",
+        "timezone_type": 3,
+        "timezone": "US/Eastern"
+    },
+    "endDateTime": {
+        "date": "2026-04-17 14:00:00.000000",
+        "timezone_type": 3,
+        "timezone": "US/Pacific"
+    },
+    "timezone": "US/Pacific",
+    "location": null,
+    "webinarUrl": null,
+    "directLink": "https://events.cybersecuritycollaboration.com/april-2024-cincinnati-ciso-leadership-exchange/session/1991984/keynote-connecting-the-web-innovation-efficiency-and-security-team-automation",
+    "virtualLink": null,
+    "speakerIds": [
+        "speaker-1",
+        "speaker-2"
+    ]
+}

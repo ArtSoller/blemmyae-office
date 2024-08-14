@@ -1,0 +1,12 @@
+{
+    "name": "cra/cra-block-webcast-speaker",
+    "description": "CyberRiskAlliance's webcast speaker block",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "Konstantin Gusev",
+            "email": "guvkon@protonmail.com"
+        }
+    ],
+    "license": "proprietary"
+}

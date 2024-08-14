@@ -1,0 +1,18 @@
+Index: src/Blocks/Block.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Blocks/Block.php b/src/Blocks/Block.php
+--- a/src/Blocks/Block.php	(revision 0a069637352968ed8970b783c4459299efac87e2)
++++ b/src/Blocks/Block.php	(date 1673264864895)
+@@ -210,6 +210,9 @@
+ 		$result = self::parse_attributes( $data, $this->blockType );
+ 
+ 		$this->attributes     = $result['attributes'];
++		if (isset($this->attributes['content'])) {
++			$this->attributes['content'] = apply_filters('the_content_block', $this->attributes['content']);
++		}
+ 		$this->attributesType = $result['type'];
+ 
+ 		$this->dynamicContent = $this->render_dynamic_content( $data );

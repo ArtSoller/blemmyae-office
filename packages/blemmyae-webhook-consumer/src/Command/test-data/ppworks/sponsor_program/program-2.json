@@ -1,0 +1,10 @@
+{
+    "id": "program-2",
+    "name": "Mi proin sed libero enim sed faucibus",
+    "sponsor": "sponsor-2",
+    "landing_page_url": "https://loremipsum.io/generator/?n=7&t=w",
+    "is_active": false,
+    "tier": null,
+    "brand": null,
+    "brand_order": null
+}

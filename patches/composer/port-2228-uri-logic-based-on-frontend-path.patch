@@ -1,0 +1,19 @@
+Subject: [PATCH] URI_Logic_based_on_frontend_uri
+---
+Index: src/Model/Term.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Model/Term.php b/src/Model/Term.php
+--- a/src/Model/Term.php	(revision b1a9a9ffc00dd6220c2084840d83b16a78c43d07)
++++ b/src/Model/Term.php	(date 1703718551315)
+@@ -198,7 +198,7 @@
+
+ 					// Replace the home_url in the link in order to return a relative uri.
+ 					// For subdirectory multisites, this replaces the home_url which includes the subdirectory.
+-					return ! empty( $link ) ? str_ireplace( home_url(), '', $link ) : null;
++					return ! empty( $link ) ? str_ireplace( defined('FRONTEND_URI') ? (string)FRONTEND_URI : '', '', $link ) : null;
+ 				},
+ 			];
+ 

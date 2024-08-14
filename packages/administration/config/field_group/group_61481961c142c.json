@@ -1,0 +1,81 @@
+{
+    "key": "group_61481961c142c",
+    "title": "Speaker Collection",
+    "fields": [
+        {
+            "key": "field_6148196c8ccce",
+            "label": "Events",
+            "name": "events",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "post_type": [
+                "learning"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object",
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": true,
+                "acfe_bidirectional_related": [
+                    "field_61480b8811632"
+                ]
+            },
+            "bidirectional_target": [],
+            "acfe_add_post": 0,
+            "acfe_edit_post": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "people"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "people_type:speaker"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "speakerCollection",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "Person"
+    ],
+    "modified": 1713451845
+}

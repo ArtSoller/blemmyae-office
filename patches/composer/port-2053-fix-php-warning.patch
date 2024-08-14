@@ -1,0 +1,63 @@
+Subject: [PATCH] 4
+---
+Index: src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php b/src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php
+--- a/src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php	(revision c36284ad692cd1b6080c4f507b589a9f0f9969a0)
++++ b/src/Schema/Types/Connection/Blocks/CoreImageBlockToMediaItemConnection.php	(date 1695819775395)
+@@ -15,8 +15,8 @@
+ 				'oneToOne'           => true,
+ 				'connectionTypeName' => 'CoreImageBlockToMediaItemConnection',
+ 				'resolve'            => function ( $source, $args, $context, $info ) {
+-					$queried_attachment = get_post( $source->attributes['id'] );
+-					if ( is_wp_error( $queried_attachment ) ) {
++					$queried_attachment = !empty($source->attributes['id']) ? get_post( $source->attributes['id'] ) : null;
++					if ( is_wp_error( $queried_attachment ) || null === $queried_attachment) {
+ 						return false;
+ 					}
+
+Index: src/Blocks/Block.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Blocks/Block.php b/src/Blocks/Block.php
+--- a/src/Blocks/Block.php	(revision c36284ad692cd1b6080c4f507b589a9f0f9969a0)
++++ b/src/Blocks/Block.php	(date 1695819921780)
+@@ -85,14 +85,14 @@
+
+ 					break;
+ 				case 'attribute':
+-					$source_node = $value['selector'] ? $node->findOne( $value['selector'] ) : $node;
++					$source_node = !empty($value['selector']) ? $node->findOne( $value['selector'] ) : $node;
+
+ 					if ( $source_node ) {
+ 						$result[ $key ] = $source_node->getAttribute( $value['attribute'] );
+ 					}
+ 					break;
+ 				case 'text':
+-					$source_node = $value['selector'] ? $node->findOne( $value['selector'] ) : $node;
++					$source_node = !empty($value['selector']) ? $node->findOne( $value['selector'] ) : $node;
+
+ 					if ( $source_node ) {
+ 						$result[ $key ] = $source_node->plaintext;
+@@ -199,7 +199,7 @@
+
+ 		$this->name            = $data['blockName'];
+ 		$this->postId          = $post_id;
+-		$this->blockType       = $registry[ $this->name ];
++		$this->blockType       = $registry[ $this->name ] ?? null;
+ 		$this->originalContent = apply_filters('the_content_block', self::strip_newlines($data['innerHTML']));
+ 		$this->saveContent     = self::parse_inner_content( $data );
+ 		$this->order           = $order;
+@@ -213,7 +213,7 @@
+ 		if (isset($this->attributes['content'])) {
+ 			$this->attributes['content'] = apply_filters('the_content_block', $this->attributes['content']);
+ 		}
+-		$this->attributesType = $result['type'];
++		$this->attributesType = $result['type'] ?? null;
+
+ 		$this->dynamicContent = $this->render_dynamic_content( $data );

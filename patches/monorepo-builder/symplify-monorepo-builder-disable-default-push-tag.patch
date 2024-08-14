@@ -1,0 +1,22 @@
+Subject: [PATCH] disable-default-push-tag-behaviour
+---
+Index: config/config.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/config/config.php b/config/config.php
+--- a/config/config.php	(revision 8b0974ac996d22e25f33fec2393d5189e428f49e)
++++ b/config/config.php	(date 1693475388052)
+@@ -35,11 +35,6 @@
+         // register manually
+         __DIR__ . '/../packages/Release/ReleaseWorker',
+     ]);
+-    if (!$mbConfig->isDisableDefaultWorkers()) {
+-        // add default for easy tag and push without need to make configs
+-        $services->set(TagVersionReleaseWorker::class);
+-        $services->set(PushTagReleaseWorker::class);
+-    }
+     $services->load('Symplify\MonorepoBuilder\\', __DIR__ . '/../src')->exclude([__DIR__ . '/../src/Config/MBConfig.php', __DIR__ . '/../src/Exception', __DIR__ . '/../src/Kernel', __DIR__ . '/../src/ValueObject']);
+     // for autowired commands
+     $services->alias(Application::class, MonorepoBuilderApplication::class);

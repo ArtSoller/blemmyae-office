@@ -1,0 +1,59 @@
+CATEGORY;SUBCATEGORY;TOPICS
+Architecture;Application security;Botnet
+Architecture;Application security;Container security
+Architecture;Application security;DevOps
+Architecture;Cloud;Cloud security
+Architecture;Device Security;Application isolation
+Architecture;Device Security;Endpoint Security
+Architecture;Device Security;Hardware security
+Architecture;Device Security;IOT
+Architecture;Device Security;Mobile
+Architecture;Network security;DDOS
+Architecture;Network security;Firewall
+Architecture;Network security;Intrusion detection
+Architecture;Network security;Wireless security
+Policy;Compliance;Legislation
+Policy;Compliance;Privacy
+Policy;Compliance;Regulation
+Policy;Critical infrastructure;Election security
+Policy;Critical infrastructure;ICS security
+Risk management;Cybersecurity Asset Management;
+Risk management;Data security;Backup and recovery
+Risk management;Data security;Breach
+Risk management;Data security;Data loss prevention
+Risk management;Data security;Encryption
+Risk management;Data security;Secure file sharing
+Risk management;Identity and access;Active Directory
+Risk management;Identity and access;Remote access
+Risk management;Supply chain;Third-party risk
+Strategy;Careers;Leadership
+Strategy;Incident response;Forensics
+Strategy;Incident response;SIEM
+Strategy;Incident response;SOC
+Strategy;Incident response;TDR
+Strategy;Managed security;
+Strategy;Security awareness;Email security
+Strategy;Security awareness;Training
+Strategy;Threat intelligence;OSINT
+Strategy;Threat intelligence;Security research
+Strategy;Threat intelligence;Social engineering
+Strategy;Threat intelligence;Threat hunting
+Strategy;Threat intelligence;Threat modeling
+Strategy;Vulnerability management;Attack simulation
+Strategy;Vulnerability management;Attack surface mgmt
+Strategy;Vulnerability management;Bug bounties
+Strategy;Vulnerability management;Configuration management
+Strategy;Vulnerability management;Patch management
+Strategy;Vulnerability management;Pen testing
+Strategy;Zero trust;
+Threats;Cybercrime;Cryptocurrency
+Threats;Cyberespionage;APT
+Threats;Insider threat;Deception
+Threats;Malware;Phishing
+Threats;Malware;Ransomware
+Threats;Physical security;
+Uncategorized;Unsubcategorized;Black Hat
+Uncategorized;Unsubcategorized;Blue team
+Uncategorized;Unsubcategorized;RSAC
+Uncategorized;Unsubcategorized;SC Awards
+Uncategorized;Unsubcategorized;Women in IT Security

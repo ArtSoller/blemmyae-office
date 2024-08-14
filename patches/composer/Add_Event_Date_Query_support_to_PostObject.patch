@@ -1,0 +1,237 @@
+Subject: [PATCH] Add_Event_Date_Query_support_to_PostObject
+---
+Index: src/Data/Connection/PostObjectConnectionResolver.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Data/Connection/PostObjectConnectionResolver.php b/src/Data/Connection/PostObjectConnectionResolver.php
+--- a/src/Data/Connection/PostObjectConnectionResolver.php	(revision b057b7af1c9adf44f1eeec54288d664e6b0df244)
++++ b/src/Data/Connection/PostObjectConnectionResolver.php	(date 1704719897604)
+@@ -2,6 +2,8 @@
+
+ namespace WPGraphQL\Data\Connection;
+
++use DateTime;
++use DateTimeZone;
+ use GraphQL\Error\InvariantViolation;
+ use GraphQL\Type\Definition\ResolveInfo;
+ use WPGraphQL\AppContext;
+@@ -22,6 +24,27 @@
+ 	 */
+ 	protected $post_type;
+
++    /**
++     * Timezone for learning content
++     *
++     * @var string
++     */
++    public const LEARNING_TIMEZONE = 'America/New_York';
++
++    /**
++     * ACG database datetime format
++     *
++     * @var string
++     */
++    public const ACF_DB_DATETIME_FORMAT = 'Y-m-d H:i:s';
++
++    /**
++     * Key for meta end date
++     *
++     * @var string
++     */
++    private const COMPARISON_DATE_META_KEY = 'date_0_end_date';
++
+ 	/**
+ 	 * {@inheritDoc}
+ 	 *
+@@ -279,6 +302,29 @@
+ 			$query_args['order']    = isset( $last ) ? 'ASC' : 'DESC';
+ 		}
+
++        $input = $input_fields['event_date_query'] ?? null;
++        if (!empty($input)) {
++            if (!empty($input['order'])) {
++                $query_args['order'] = $input['order'];
++                $query_args['orderby'] = 'meta_value';
++                $query_args['meta_key'] = self::COMPARISON_DATE_META_KEY;
++            }
++            if (!empty($input['operator']) && !empty($input['value'])) {
++                // @todo Introduce a separate field for events which is the latest provided date in the array.
++                // Because currently this logic breaks on multiple day events.
++                $query_args['meta_key'] = self::COMPARISON_DATE_META_KEY;
++                $query_args['meta_value'] = $input['value'] === 'now' ?
++                    (new DateTime('now', new DateTimeZone(self::LEARNING_TIMEZONE)))
++                        ->format(self::ACF_DB_DATETIME_FORMAT) : $input['value'];
++                $query_args['meta_compare'] = $input['operator'] === 'AFTER' ? '>=' : '<=';
++            }
++        }
++
++        // @todo Investigate if ElasticPress integration works.
++        // $query_args['ep_integrate'] = true;
++
++        unset($query_args['event_date_query']);
++
+ 		/**
+ 		 * Map the orderby inputArgs to the WP_Query
+ 		 */
+@@ -383,6 +429,7 @@
+ 			'categoryNotIn' => 'category__not_in',
+ 			'contentTypes'  => 'post_type',
+ 			'dateQuery'     => 'date_query',
++            'eventDateQuery'=> 'event_date_query',
+ 			'hasPassword'   => 'has_password',
+ 			'id'            => 'p',
+ 			'in'            => 'post__in',
+Index: src/Registry/TypeRegistry.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Registry/TypeRegistry.php b/src/Registry/TypeRegistry.php
+--- a/src/Registry/TypeRegistry.php	(revision b057b7af1c9adf44f1eeec54288d664e6b0df244)
++++ b/src/Registry/TypeRegistry.php	(date 1704719897609)
+@@ -39,6 +39,7 @@
+ use WPGraphQL\Type\Enum\ContentNodeIdTypeEnum;
+ use WPGraphQL\Type\Enum\ContentTypeEnum;
+ use WPGraphQL\Type\Enum\ContentTypeIdTypeEnum;
++use WPGraphQL\Type\Enum\EventDateQueryOperatorEnum;
+ use WPGraphQL\Type\Enum\MediaItemSizeEnum;
+ use WPGraphQL\Type\Enum\MediaItemStatusEnum;
+ use WPGraphQL\Type\Enum\MenuItemNodeIdTypeEnum;
+@@ -61,6 +62,7 @@
+ use WPGraphQL\Type\Enum\UserNodeIdTypeEnum;
+ use WPGraphQL\Type\Enum\UserRoleEnum;
+ use WPGraphQL\Type\Enum\UsersConnectionOrderbyEnum;
++use WPGraphQL\Type\Input\EventDateQueryInput;
+ use WPGraphQL\Type\Enum\UsersConnectionSearchColumnEnum;
+ use WPGraphQL\Type\Input\DateInput;
+ use WPGraphQL\Type\Input\DateQueryInput;
+@@ -342,6 +344,7 @@
+ 		ContentNodeIdTypeEnum::register_type();
+ 		ContentTypeEnum::register_type();
+ 		ContentTypeIdTypeEnum::register_type();
++        EventDateQueryOperatorEnum::register_type();
+ 		MediaItemSizeEnum::register_type();
+ 		MediaItemStatusEnum::register_type();
+ 		MenuLocationEnum::register_type();
+@@ -366,7 +369,8 @@
+ 		UsersConnectionOrderbyEnum::register_type();
+ 		UsersConnectionSearchColumnEnum::register_type();
+
+-		DateInput::register_type();
++        EventDateQueryInput::register_type();
++        DateInput::register_type();
+ 		DateQueryInput::register_type();
+ 		PostObjectsConnectionOrderbyInput::register_type();
+ 		UsersConnectionOrderbyInput::register_type();
+Index: src/Type/Enum/EventDateQueryOperatorEnum.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Type/Enum/EventDateQueryOperatorEnum.php b/src/Type/Enum/EventDateQueryOperatorEnum.php
+new file mode 100644
+--- /dev/null	(date 1704719943078)
++++ b/src/Type/Enum/EventDateQueryOperatorEnum.php	(date 1704719943078)
+@@ -0,0 +1,32 @@
++<?php
++
++namespace WPGraphQL\Type\Enum;
++
++class EventDateQueryOperatorEnum
++{
++
++    /**
++     * Register the Enum used for setting the field to identify event date nodes by
++     *
++     * @return void
++     */
++    public static function register_type()
++    {
++        register_graphql_enum_type(
++            'EventDateQueryOperatorEnum',
++            [
++                'description' => __('Operator to test. Default value is "AFTER".', 'wp-graphql'),
++                'values' => [
++                    'AFTER' => [
++                        'name' => 'AFTER',
++                        'value' => 'AFTER',
++                    ],
++                    'BEFORE' => [
++                        'name' => 'BEFORE',
++                        'value' => 'BEFORE',
++                    ],
++                ],
++            ]
++        );
++    }
++}
+\ No newline at end of file
+Index: src/Type/Input/EventDateQueryInput.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Type/Input/EventDateQueryInput.php b/src/Type/Input/EventDateQueryInput.php
+new file mode 100644
+--- /dev/null	(date 1704719943080)
++++ b/src/Type/Input/EventDateQueryInput.php	(date 1704719943080)
+@@ -0,0 +1,31 @@
++<?php
++
++namespace WPGraphQL\Type\Input;
++
++class EventDateQueryInput
++{
++    public static function register_type()
++    {
++        register_graphql_input_type(
++            'EventDateQueryInput',
++            [
++                'description' => __('Query and sort Learnings by start date.', 'administration'),
++                'fields' => [
++                    'order' => [
++                        'type' => 'OrderEnum',
++                    ],
++                    'operator' => [
++                        'type' => 'EventDateQueryOperatorEnum',
++                    ],
++                    'value' => [
++                        'type' => 'String',
++                        'description' => __(
++                            'Filter value in format "2021-07-30 11:00:00" or just "now".',
++                            'administration'
++                        ),
++                    ],
++                ],
++            ]
++        );
++    }
++}
+\ No newline at end of file
+Index: src/Type/Connection/PostObjects.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Type/Connection/PostObjects.php b/src/Type/Connection/PostObjects.php
+--- a/src/Type/Connection/PostObjects.php	(revision b057b7af1c9adf44f1eeec54288d664e6b0df244)
++++ b/src/Type/Connection/PostObjects.php	(date 1704719550720)
+@@ -385,6 +385,16 @@
+ 				'description' => __( 'What parameter to use to order the objects by.', 'wp-graphql' ),
+ 			],
+
++            /**
++             * Event Date parameters
++             *
++             * @see https://cra.myjetbrains.com/youtrack/issue/PORT-397
++             */
++            'eventDateQuery' => [
++                'type' => 'EventDateQueryInput',
++                'description' => __('Filter the connection based on event dates', 'wp-graphql'),
++            ],
++
+ 			/**
+ 			 * Date parameters
+ 			 *

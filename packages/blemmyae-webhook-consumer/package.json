@@ -1,0 +1,28 @@
+{
+  "name": "blemmyae-webhook-consumer",
+  "version": "1.16.2",
+  "description": "Webhook Consumer is a WP plugin for handling incoming webhooks from CRA integrations in Blemmyae.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build:docs": "rm -rf hookdocs/ && jsdoc --configure hookdoc-conf.json --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cra-repo/webhook-consumer.git"
+  },
+  "keywords": [
+    "plugin",
+	"blemmyae-webhook-consumer"
+  ],
+  "author": "Alexander Kucherov",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cra-repo/webhook-consumer/issues"
+  },
+  "homepage": "https://github.com/cra-repo/webhook-consumer#readme",
+  "devDependencies": {
+    "jsdoc": "^3.6.6",
+	"wp-hookdoc": "^0.2.0"
+  }
+}

@@ -1,0 +1,17 @@
+{#
+	Collection block item layout: Raw
+#}
+
+{# Debug info
+<pre>
+    {{ dump(field) }}
+</pre>
+#}
+
+{% import "card.twig" as card %}
+
+<div class="card-group">
+	{% for post in field.post %}
+			{{ card.c1(post) }}
+	{% endfor %}
+</div>

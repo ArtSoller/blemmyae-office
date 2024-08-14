@@ -1,0 +1,85 @@
+Current SCM Taxonomy Term;New CRA (Global) Taxonomy Term
+Architecture
+Architecture;Application security
+Architecture;Application security;Application isolation
+Architecture;Application security;Botnet
+Architecture;Application security;Container security
+Architecture;Application security;Threat modeling
+Architecture;Cloud security;
+Architecture;Cloud security;Cloud
+Architecture;Device Security
+Architecture;Device Security;Endpoint Security
+Architecture;Device Security;Hardware security
+Architecture;Device Security;IOT
+Architecture;Device Security;Mobile
+Architecture;DevOps
+Architecture;Network security
+Architecture;Network security;DDOS
+Architecture;Network security;Firewall
+Architecture;Network security;Intrusion detection
+Architecture;Network security;Wireless security
+Policy
+Policy;Compliance
+Policy;Compliance;Legislation
+Policy;Compliance;Regulation
+Policy;Critical infrastructure
+Policy;Critical infrastructure;Election security
+Policy;Critical infrastructure;ICS security
+Policy;Privacy;
+Risk management
+Risk management;Asset management
+Risk management;Backup and recovery
+Risk management;Breach
+Risk management;Breach;Attack simulation
+Risk management;Business continuity
+Risk management;Cybersecurity asset management
+Risk management;Data security
+Risk management;Data security;Data loss prevention
+Risk management;Data security;Encryption
+Risk management;Data security;Secure file sharing
+Risk management;Identity and access
+Risk management;Identity and access;Active Directory
+Risk management;Remote access
+Risk management;Third-party risk
+Risk management;Third-party risk;Attack surface mgmt
+Risk management;Third-party risk;Supply chain
+Strategy
+Strategy;Careers
+Strategy;Email security
+Strategy;Email security;Phishing
+Strategy;Emerging technology
+Strategy;Emerging technology;AI
+Strategy;Emerging technology;Blockchain
+Strategy;Emerging technology;ML
+Strategy;Emerging technology;Quantum
+Strategy;Incident response
+Strategy;Incident response;Forensics
+Strategy;Incident response;SIEM
+Strategy;Incident response;SOC
+Strategy;Leadership
+Strategy;Managed services
+Strategy;Managed services;Managed security
+Strategy;Security awareness
+Strategy;Security awareness;Training
+Strategy;Social engineering
+Strategy;Social engineering;OSINT
+Strategy;Threat intelligence
+Strategy;Threat intelligence;Security research
+Strategy;Threat intelligence;TDR
+Strategy;Threat intelligence;Threat hunting
+Strategy;Vulnerability management
+Strategy;Vulnerability management;Bug bounties
+Strategy;Vulnerability management;Configuration management
+Strategy;Vulnerability management;Patch management
+Strategy;Vulnerability management;Pen testing
+Strategy;Zero trust
+Threats
+Threats;Cybercrime
+Threats;Cybercrime;APT
+Threats;Cybercrime;Cryptocurrency
+Threats;Cybercrime;Cyberespionage
+Threats;Insider threat
+Threats;Insider threat;Deception
+Threats;Malware
+Threats;Physical security
+Threats;Ransomware

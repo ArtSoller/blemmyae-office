@@ -1,0 +1,81 @@
+# Ignore local configuration files.
+bu-*
+.sass-cache/
+*.DS_Store
+*.vscode/
+.DS_Store
+.idea
+.version.php
+.tmp
+.env
+debug.log
+**/npm-debug.log
+# WPE no more supports it, @see: https://wpengine.com/support/htaccess-deprecation/
+.htaccess
+# GraphCDN configuration
+stellate.js
+
+/*.csv
+/*.html
+/*.sql
+/*.sql.gz
+
+# Ignore Composer packages.
+vendor/
+# Ignore NPM packages.
+node_modules/
+
+# Ignore environment files & tools.
+auth.json
+secrets.json
+new_secrets.json
+bin/
+docker/nginx/certs/*
+
+wp-content/themes/*/vendor/*
+wp-content/plugins/
+/wp-content/object-cache.php
+# User uploaded and system generated files.
+wp-content/cache/*
+wp-content/uploads/*
+wp-content/ewww/*
+
+# MU plugins
+## composer-autoload
+wp-content/mu-plugins/composer-autoload.php
+## LudicrousDB fork of HyperDB
+wp-content/mu-plugins/ludicrousdb
+## index mysql dependency
+wp-content/mu-plugins/index-wp-mysql-for-speed-update-filter.php
+
+# Standard Wordpress files and folders:
+index.php
+license.txt
+readme.html
+wp-activate.php
+wp-admin/
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+wp-cron.php
+wp-includes/
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+wp-cli.phar
+
+# Temporary fix for a bad gitignore setting in some packages.
+!packages/*/src/*
+!packages/*/src/*/*
+!packages/*/src/*/*/*
+
+# Ignore post install command artifact locally.
+wp-config.php
+wp-config.*.php
+wp-config-ddev.php
+.ddev/php

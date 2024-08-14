@@ -1,0 +1,11 @@
+dayOfWeek;period;companyIdInOrder
+Monday;AM;7>14>4>6>17>3>16>13
+Monday;PM;7>14>4>6>17>3>16>13
+Tuesday;AM;4>16>14>7>3>6>12>17
+Tuesday;PM;4>16>14>7>3>6>12>17
+Wednesday;AM;3>17>12>16>13>6>4>14
+Wednesday;PM;3>17>12>16>13>6>4>14
+Thursday;AM;12>13>17>4>16>7>14>6
+Thursday;PM;12>13>17>4>16>7>14>6
+Friday;AM;17>6>7>3>12>16>13>4
+Friday;PM;17>6>7>3>12>16>13>4

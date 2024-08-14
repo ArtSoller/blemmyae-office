@@ -1,0 +1,19 @@
+{
+    "id": "show-1",
+    "title": "Fake Test Show",
+    "subtitle": "",
+    "shortname": "FTS",
+    "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique senectus et netus et. Eget nunc scelerisque viverra mauris in aliquam sem. Massa massa ultricies mi quis hendrerit dolor magna eget. Turpis egestas sed tempus urna et pharetra pharetra. Ullamcorper morbi tincidunt ornare massa. Facilisis gravida neque convallis a cras. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas. Neque laoreet suspendisse interdum consectetur.</p>\n\n<p>Eu feugiat pretium nibh ipsum consequat nisl vel pretium lectus. Interdum posuere lorem ipsum dolor sit. Ligula ullamcorper malesuada proin libero nunc consequat interdum. Nibh tortor id aliquet lectus proin nibh nisl condimentum id. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Blandit massa enim nec dui nunc mattis enim. Pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Pellentesque habitant morbi tristique senectus et netus et. Commodo elit at imperdiet dui accumsan sit amet nulla. Maecenas volutpat blandit aliquam etiam erat velit. Sit amet mattis vulputate enim. Nulla aliquet enim tortor at auctor. Augue interdum velit euismod in pellentesque massa. Tellus mauris a diam maecenas sed enim ut sem viverra.</p>",
+    "default_image": "https:\/\/files.securityweekly.com\/images\/show\/BSW-1920x1080-0.png",
+    "audio_only": false,
+    "is_series": false,
+    "subscribe_video_apple": "https:\/\/podcasts.apple.com\/us\/podcast\/startup-security-weekly-video\/id1139240239?mt=2",
+    "subscribe_video_google": "https:\/\/youtube.com\/playlist?list=PLlPkFwQHxYE4KNGXjbiHUtrx7-wQa-SXi",
+    "subscribe_video_rss": "https:\/\/scwvideo.libsyn.com\/rss",
+    "subscribe_audio_apple": "https:\/\/podcasts.apple.com\/us\/podcast\/startup-security-weekly-audio\/id1139240260?mt=2",
+    "subscribe_audio_spotify": "https://open.spotify.com/show/2tDV6qKYv8o0a3VJnHJYYP?si=e95cfcf3a9e043ca",
+    "subscribe_audio_amazon": "https://open.amazon.com/show/2tDV6qKYv8o0a3VJnHJYYP?si=e95cfcf3a9e043ca",
+    "subscribe_audio_pandora": "https://open.pandora.com/show/2tDV6qKYv8o0a3VJnHJYYP?si=e95cfcf3a9e043ca",
+    "subscribe_audio_google": "https:\/\/podcasts.google.com\/feed\/aHR0cDovL3Nzd2F1ZGlvLnN3c2d0di5saWJzeW5wcm8uY29tL3Jzcw",
+    "subscribe_audio_rss": "https:\/\/sswaudio.libsyn.com\/rss"
+}

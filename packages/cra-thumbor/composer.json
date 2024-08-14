@@ -1,0 +1,69 @@
+{
+    "name": "cra/cra-thumbor",
+    "type": "wordpress-plugin",
+    "description": "Implements Thumbor service for intermediate image sizes",
+    "keywords": [
+        "plugin",
+        "cra-thumbor",
+        "thumbor",
+        "php",
+        "wordpress"
+    ],
+    "homepage": "https://github.com/cra-repo/cra-thumbor",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Olga Kiriliuk",
+            "email": "fialka.chan@gmail.com"
+        },
+        {
+            "name": "Gary Jones",
+            "homepage": "https://garyjones.io",
+            "role": "Developer"
+        },
+        {
+            "name": "Alexander Kucherov",
+            "homepage": "https://github.com/Zinkutal"
+        },
+        {
+            "name": "Eugene Yakovenko",
+            "homepage": "https://github.com/yakoveka"
+        }
+    ],
+    "require": {
+        "php": ">=8.2 || <8.3",
+        "99designs/phumbor": "1.2.*",
+        "brightnucleus/config": "^0.4",
+        "composer/installers": "^1.10"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Cra\\Thumbor\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cra\\Thumbor\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "mkdir -p logs"
+        ],
+        "post-update-cmd": [
+            "mkdir -p logs"
+        ]
+    }
+}

@@ -1,0 +1,152 @@
+{
+    "key": "group_607414da432d9",
+    "title": "Learning Taxonomy",
+    "fields": [
+        {
+            "key": "field_607414edd514e",
+            "label": "Learning Type",
+            "name": "learning_type",
+            "aria-label": "",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "taxonomy": [
+                "learning_type"
+            ],
+            "allow_terms": [
+                "all_learning_type"
+            ],
+            "allow_level": "",
+            "field_type": "select",
+            "default_value": [],
+            "return_format": "object",
+            "ui": 1,
+            "allow_null": 0,
+            "search_placeholder": "",
+            "multiple": 0,
+            "ajax": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "populate_parental_terms": 0,
+            "choices": [],
+            "placeholder": "",
+            "layout": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0,
+            "min": "",
+            "max": ""
+        },
+        {
+            "key": "field_607415300ff19",
+            "label": "Topic",
+            "name": "topic",
+            "aria-label": "",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "First topic is a main topic.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "taxonomy": [
+                "topic"
+            ],
+            "allow_terms": "",
+            "allow_level": "",
+            "field_type": "select",
+            "default_value": [],
+            "return_format": "object",
+            "ui": 1,
+            "allow_null": 0,
+            "placeholder": "",
+            "multiple": 1,
+            "ajax": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "populate_parental_terms": 0,
+            "choices": [],
+            "search_placeholder": "",
+            "layout": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0,
+            "min": "",
+            "max": ""
+        },
+        {
+            "key": "field_60e7d2c7c2ab5",
+            "label": "Brand",
+            "name": "brand",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "taxonomy": "brand",
+            "field_type": "checkbox",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "object",
+            "populate_parental_terms": 0,
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "0"
+            },
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": [],
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "learning"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "php",
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "learningTaxonomy",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "Learning"
+    ],
+    "modified": 1713451839
+}
